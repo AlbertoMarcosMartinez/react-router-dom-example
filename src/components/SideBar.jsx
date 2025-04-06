@@ -1,9 +1,7 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const SideBar = () => {
-    const navigate = useNavigate();
-
     const buttons = [
         { text: 'Home', path: '/' },
         { text: 'Dogs', path: '/dogs' },
@@ -17,11 +15,11 @@ const SideBar = () => {
             <ul>
                 {buttons.map((button, index) => (
                     <li key={index}>
-                        <button 
-                            onClick={() => navigate(button.path)}
+                        <Link 
+                            to={button.path}
                             className="nav-button">
                             {button.text}
-                        </button>
+                        </Link>
                     </li>
                 ))}
             </ul>

@@ -1,0 +1,55 @@
+.dog-finder {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.dog-finder-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.PrimaryRoundedButton  {
+    background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 9999px;        /* rounded-full */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.75rem;     /* py-3 px-7 */
+  text-align: center;
+  font-size: 1rem;              /* text-base */
+  font-weight: 500;             /* font-medium */
+  transition: all 0.3s ease;    /* para suavizar el hover */
+}
+.PrimaryRoundedButton:hover {
+    background-color: #e5e7eb;    /* gris claro (Tailwind gray-200) */
+  border-color: #e5e7eb;
+  color: black;
+  }
+  
+  .PrimaryRoundedButton:disabled {
+    background-color: #e5e7eb;    /* gris claro */
+    border-color: #e5e7eb;
+    color: #6b7280;               /* gris más oscuro para texto deshabilitado */
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  
+  .PrimaryRoundedButton:active {
+    background-color: #1B44C8;
+    border-color: #1B44C8;
+  }
+

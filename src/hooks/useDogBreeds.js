@@ -9,21 +9,27 @@ const useDogBreeds = () => {
   useEffect(() => {
     const fetchDogs = async () => {
       try {
-        const response = await fetch('https://api.thedogapi.com/v1/breeds?limit=12', {
+        const response = await fetch('https://api.thedogapi.com/v1/breeds?limit=100', {
           headers: {
             'Content-Type': 'application/json',
             'x-api-key': apiKey
           }
         });
-        
+  
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+  
         const data = await response.json();
-        
-        const shuffledBreeds = data.sort(() => 0.5 - Math.random());
-        const randomBreeds = shuffledBreeds.slice(0, 12);
+  
+        // Fisher-Yates Shuffle
+        const shuffled = [...data]; // copia del array
+        for (let i = shuffled.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+  
+        const randomBreeds = shuffled.slice(0, 12);
         setDogs(randomBreeds);
         setLoading(false);
       } catch (err) {
@@ -31,7 +37,7 @@ const useDogBreeds = () => {
         setLoading(false);
       }
     };
-
+  
     fetchDogs();
   }, []);
 

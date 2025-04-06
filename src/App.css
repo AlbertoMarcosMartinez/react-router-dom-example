@@ -88,20 +88,27 @@
 }
 
 .nav-button {
+  display: block;
   width: 100%;
   padding: 10px 15px;
   margin: 5px 0;
-  border: none;
-  background: none;
-  cursor: pointer;
-  text-align: left;
-  font-size: 16px;
-  transition: background-color 0.3s;
+  text-decoration: none;
+  color: #666;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  transition: all 0.2s ease;
 }
 
 .nav-button:hover {
   background-color: #e9ecef;
-  border-radius: 5px;
+  color: #333;
+}
+
+/* Style for active link */
+.nav-button.active {
+  background-color: #e2e6ea;
+  color: #1a1a1a;
+  border-left: 3px solid #666;
 }
 
 .main-content {

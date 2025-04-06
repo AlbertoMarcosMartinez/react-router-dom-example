@@ -2,6 +2,7 @@
 
 .dog-list {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
@@ -46,7 +47,7 @@
 
 .breeds-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px;
 }
@@ -55,8 +56,17 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 15px;
-  background: white;
+  background: lightgray;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s;
+  display: block;
+}
+
+.breed-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .breed-card img {
@@ -64,7 +74,6 @@
   height: 200px;
   object-fit: cover;
   border-radius: 4px;
-  margin: 10px 0;
 }
 
 .breed-card h3 {
@@ -86,4 +95,23 @@
 
 .error {
   color: #dc3545;
+}
+
+.search-message {
+  margin: 10px 20px;
+  padding: 12px 15px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.message.error {
+  background-color: #fdf0f0;
+  color: #d32f2f;
+  border: 1px solid #ffd7d7;
+}
+
+.message.info {
+  background-color: #f0f7ff;
+  color: #0288d1;
+  border: 1px solid #d0e8ff;
 }
