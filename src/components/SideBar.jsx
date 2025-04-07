@@ -18,7 +18,7 @@ const SideBar = () => {
                         <Link 
                             to={button.path}
                             className="nav-button">
-                            {button.text}
+                            {button.text} 
                         </Link>
                     </li>
                 ))}
