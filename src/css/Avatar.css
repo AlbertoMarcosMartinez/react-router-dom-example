@@ -1,0 +1,22 @@
+  ul {
+    list-style: none; /* Quita los bullets */
+    padding: 0;
+    margin: 0;
+  }
+  
+  ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    border-bottom: 1px solid #e0e0e0;
+    font-family: Arial, sans-serif;
+  }
+  
+  ul li .profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  

@@ -1,0 +1,17 @@
+.logoutBtn {
+    margin: auto;
+  }
+  
+  .center-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+  }
+  
+  .btn {
+    background-color: #e76f51 !important;
+    border: #e76f51 !important;
+    font-family: "Rubik Doodle Shadow" !important;
+    font-size: 2em !important;
+  }
