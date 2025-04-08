@@ -1,21 +1,35 @@
-import React from 'react'
+import React, { useContext } from 'react';
 import Avatar from '@mui/material/Avatar';
+import AuthContext from '../../contexts/AuthContext';
+import '../../css/Header.css';
 
 const Header = () => {
+  const { isAuthenticated, user, userImage } = useContext(AuthContext);
+  
   return (
     <div>
-        <header className="header">
-            <h1>REACT ROUTER DOM EXAMPLES</h1>           
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/dogs">Dogs</a></li>
-                </ul>
-            </nav>
-            <Avatar alt="Alberto Marcos" src="/static/images/avatar/1.jpg" />            
-        </header>
+      {isAuthenticated && (
+        <div className="header-container">
+          <div className="header-inner">
+            <div className="logo"><h1>PETS LIST</h1></div>
+            <div className="header-right">
+              <ul className="header-list">
+                <li>
+                  <Avatar 
+                    alt={user?.name || 'User Profile'} 
+                    src={userImage || '/default-avatar.png'} 
+                  />
+                </li>
+                <li className="header-name">
+                  {user?.surname}, {user?.name}
+                </li>                
+              </ul>
+            </div>               
+          </div>
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

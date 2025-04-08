@@ -71,7 +71,7 @@ const useDogBreeds = () => {
   useEffect(() => {
 
     obteenRazasAleatorias();
-  }, []);
+  },[]);
   
   return {
     dogs,

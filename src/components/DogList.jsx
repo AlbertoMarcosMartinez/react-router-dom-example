@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import useDogBreeds from '../hooks/useDogBreeds';
 import DogFinder from './DogFinder';
 import Message from './common/Message';
 import '../css/DogList.css';
 
+import AuthContext from '../contexts/AuthContext';
+
 const DogList = () => {
   const { dogs, loading, error } = useDogBreeds();
   const [filteredDogs, setFilteredDogs] = useState([]);
   const [message, setMessage] = useState({ text: '', type: '' });
+  const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);  
 
   useEffect(() => {
     setFilteredDogs(dogs);
@@ -41,8 +44,13 @@ const DogList = () => {
   if (loading) return <div className="loading">Loading dogs...</div>;
   if (error) return <div className="error">Error: {error}</div>;
 
+  function handleClickButton() {
+    setIsAuthenticated(!isAuthenticated);
+  }
+
   return (
     <div className="dog-list">
+      <button onClick={handleClickButton}> Pulsame</button>
       <DogFinder onSearch={handleSearch} />
       <p>
       {message.text && (
