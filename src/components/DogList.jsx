@@ -44,13 +44,8 @@ const DogList = () => {
   if (loading) return <div className="loading">Loading dogs...</div>;
   if (error) return <div className="error">Error: {error}</div>;
 
-  function handleClickButton() {
-    setIsAuthenticated(!isAuthenticated);
-  }
-
   return (
     <div className="dog-list">
-      <button onClick={handleClickButton}> Pulsame</button>
       <DogFinder onSearch={handleSearch} />
       <p>
       {message.text && (
