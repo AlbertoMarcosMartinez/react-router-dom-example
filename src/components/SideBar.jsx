@@ -7,17 +7,19 @@ const SideBar = () => {
     const { isAuthenticated, user, userImage } = useContext(AuthContext);
 
     const buttons = [
-        { text: 'Home', path: '/' },
-        { text: 'Dogs', path: '/dogs' },
-        { text: 'Page2', path: '/page2' },
-        { text: 'Page3', path: '/page3' },
-        { text: 'Contact', path: '/contact' },
+        { text: 'Home', path: '/' , visible: true },
+        { text: 'Dogs', path: '/dogs', visible: isAuthenticated },       
+        { text: 'Page2', path: '/page2' , visible: isAuthenticated },
+        { text: 'Page3', path: '/page3' , visible: isAuthenticated },
+        { text: 'Contact', path: '/contact' , visible: isAuthenticated },
     ];
 
     return (
         <div className="sidebar">
             <ul>
-                {buttons.map((button, index) => (
+                {buttons
+                 .filter(button => button.visible)
+                 .map((button, index) => (
                     <li key={index}>
                         <Link to={button.path} className="nav-button">
                             {button.text}
