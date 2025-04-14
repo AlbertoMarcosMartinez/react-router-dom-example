@@ -1,17 +1,17 @@
 import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import AuthContext from '../contexts/AuthContext';
-import '../css/Login.css'; // Asegúrate de tener un archivo CSS para estilos
+import '../css/Login.css'; 
 
 const Login = () => {
   const { login } = useContext(AuthContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Inicializa useNavigate
+  const navigate = useNavigate(); 
 
   const handleLogin = (e) => {
     e.preventDefault();
-
+    
     // Simulación de validación de usuario
     if (username === 'admin' && password === 'password') {
       login({
@@ -20,7 +20,7 @@ const Login = () => {
         imageUrl: 'https://randomuser.me/api/portraits/men/32.jpg', // Imagen de ejemplo
       });
       alert('Login successful!');
-      navigate('/dogs'); // Usando navigate para redirigir al usuario
+      navigate('/dogs'); // Redirige al usuario a la página DogList
     } else {
       alert('Invalid credentials');
     }

@@ -7,6 +7,7 @@ import DogDetail from './components/DogDetail'
 import DogCharacteristics from './components/DogCharacteristics'
 import Login from './components/Login'
 import Header from './components/common/Header'
+import MainPage from './components/MainPage'
 import LoginButton from './components/buttons/LoginButton'
 import {AuthProvider}   from './contexts/AuthContext'
 
@@ -24,7 +25,7 @@ function App() {
                     <SideBar />
                     <main className="main-content">                        
                             <Routes>
-                            <Route path="/" element={<h1>Home Page</h1>} />
+                            <Route path="/" element={ <MainPage/>} />
                             <Route path="/login" element={<Login />} />                            
                             <Route path="/dogs" element={<DogList />} />
                             <Route path="/dogs/:name" element={<DogDetail />}>

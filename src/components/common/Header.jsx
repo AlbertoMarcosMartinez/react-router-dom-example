@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Avatar from './Avatar'; // Usando tu componente personalizado
+import Avatar from './Avatar'; 
 import AuthContext from '../../contexts/AuthContext';
 import '../../css/Header.css';
 
