@@ -1,22 +1,133 @@
-  ul {
-    list-style: none; /* Quita los bullets */
-    padding: 0;
-    margin: 0;
-  }
-  
-  ul li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 12px;
-    border-bottom: 1px solid #e0e0e0;
-    font-family: Arial, sans-serif;
-  }
-  
-  ul li .profile-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
+.header-container {
+  background-color: #f5f5f5;
+  padding: 10px 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #333;
+}
+
+.header-right-table {
+  display: flex;
+  align-items: center;
+}
+
+.user-table {
+  border-collapse: collapse;
+}
+
+.user-photo-cell,
+.user-name-cell,
+.logout-cell {
+  padding: 4px 8px;
+}
+
+.user-name {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+.logout-button {
+  padding: 6px 12px;
+  background-color: #e53935;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.logout-button:hover {
+  background-color: #c62828;
+}
+
+.rounded-profile {
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover;  /* Ensures the image fills the circle */
+  border: 2px solid #ccc; /* Optional: adds a light border */
+}
+
+/* Small size */
+.rounded-profile.small {
+  width: 40px;
+  height: 40px;
+  padding-bottom: 10px;
+}
+
+/* Medium size */
+.rounded-profile.medium {
+  width: 80px;
+  height: 80px;
+}
+
+/* Large size */
+.rounded-profile.large {
+  width: 120px;
+  height: 120px;
+}
+
+.rounded-profile-small {
+  width: 40px;           /* You can adjust this size as needed */ 
+  height: 40px;
+  border-radius: 50%;     /* This makes it circular */
+  object-fit: cover;      /* Ensures the image fills the circle */
+  border: 1px solid #ccc; /* Optional: adds a light border */
+}
+
+ul, ul li {
+  list-style: none; /* Remove default bullet points */
+  padding: 0;       /* Remove default padding */
+  margin: 0;        /* Remove default margin */
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column; /* Asegura que los elementos estén en columna */
+  height: 100vh; /* Hace que el sidebar ocupe toda la altura de la ventana */
+}
+
+.sidebar ul {
+  flex: 1; /* Ocupa todo el espacio disponible entre el logo y el user-info */
+  padding-left: 0;
+}
+
+.user-info {
+  margin-top: auto; /* Empuja el user-info al fondo del sidebar */
+  padding: 10px; /* Espaciado opcional */
+  background-color: #f5f5f5; /* Opcional: color de fondo para destacar */
+  text-align: center; /* Centra el contenido */
+}
+
+.sidebar ul {
+  padding-left: 0; /* Ensure no extra padding on the left */
+}
+
+.sidebar ul li {
+  list-style: none; /* Remove bullet points */
+}
+
+.header-container ul {
+  padding-left: 0; /* Ensure no extra padding on the left */
+}
+
+.header-container ul li {
+  list-style: none; /* Remove bullet points */
+}
+
+/* Default styles for the avatar */
+.avatar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

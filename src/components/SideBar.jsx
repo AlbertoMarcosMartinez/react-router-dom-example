@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Avatar from '@mui/material/Avatar';
+import Avatar from './common/Avatar'; // Usando tu componente personalizado
 import AuthContext from '../contexts/AuthContext';
 
 const SideBar = () => {
@@ -26,11 +26,16 @@ const SideBar = () => {
                 ))}
             </ul>
             {isAuthenticated && (
-                <div className="user-info">
-                    <Avatar alt={user?.name || 'User'} src={userImage} sx={{ width: 40, height: 40 }} />
-                    <h2>{user?.surname}, {user?.name}</h2>
+                <div className="rounded-profile-small">
+                    <Avatar
+                        imageUrl={userImage}
+                        name={user?.name || 'Guest'}
+                        surname={user?.surname || ''}
+                        size="small"
+                        showName={true}
+                    />
                 </div>
-            )}
+            )}            
         </div>
     );
 };

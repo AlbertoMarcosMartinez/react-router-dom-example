@@ -1,26 +1,30 @@
-import React, { useState, createContext } from 'react';
+import React, { createContext, useState } from 'react';
 
-const AuthContext = createContext({});
+const AuthContext = createContext();
 
-export function AuthProvider({ children }) {
-    const [isAuthenticated, setIsAuthenticated] = useState(true);    
-    const [user, setUser] = useState({
-        id: 1,
-        name: "Alberto",
-        surname: "Marcos Martínez",
-        age: 42,
-        country: "Spain",
-        city: "Madrid"
-      });
-      
-    const [userImage, setUserImage] = useState("https://randomuser.me/api/portraits/men/32.jpg"); 
-    
-    return (
-        <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated, user, setUser, userImage, setUserImage }}>  
-            {children}
-        </AuthContext.Provider>
-    );
-}
+export const AuthProvider = ({ children }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState(null);
+  const [userImage, setUserImage] = useState(null);
+
+  const login = (userData) => {
+    setIsAuthenticated(true);
+    setUser(userData);
+    setUserImage(userData.imageUrl);
+  };
+
+  const logout = () => {
+    setIsAuthenticated(false);
+    setUser(null);
+    setUserImage(null);
+  };
+
+  return (
+    <AuthContext.Provider value={{ isAuthenticated, user, userImage, login, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
 
 export default AuthContext;
 

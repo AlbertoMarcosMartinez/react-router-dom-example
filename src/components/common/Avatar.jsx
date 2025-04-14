@@ -1,17 +1,28 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
+import '../../css/Avatar.css'; // Import the Avatar CSS file
 
-const Avatar = () => {
+const Avatar = ({ imageUrl, name, surname, size = 'medium', showName = true }) => {
   return (
-    <li>      
-        <img
-          className="image rounded"
-          src="https://randomuser.me/api/portraits/men/1.jpg"
-          alt=""
-        />
-        <span className="sr-only">Your profile</span>
-        <span aria-hidden="true">Alberto Marcos</span>      
-    </li>
-  )
-}
+    <div className={`avatar-wrapper ${size}`}>
+      <img
+        className={`rounded-profile ${size}`}
+        src={imageUrl}
+        alt={`${name} ${surname}`}
+      />
+      {showName && (
+        <span aria-hidden="true">{`${surname}, ${name}`}</span>
+      )}
+    </div>
+  );
+};
 
-export default Avatar
+Avatar.propTypes = {
+  imageUrl: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  surname: PropTypes.string.isRequired,
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  showName: PropTypes.bool,
+};
+
+export default Avatar;
