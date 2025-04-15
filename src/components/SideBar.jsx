@@ -9,7 +9,7 @@ const SideBar = () => {
     const buttons = [
         { text: 'Home', path: '/' , visible: true },
         { text: 'Dogs', path: '/dogs', visible: isAuthenticated },       
-        { text: 'Page2', path: '/page2' , visible: isAuthenticated },
+        { text: 'FAQ', path: 'FAQs' , visible: isAuthenticated },
         { text: 'Page3', path: '/page3' , visible: isAuthenticated },
         { text: 'Contact', path: '/contact' , visible: isAuthenticated },
     ];

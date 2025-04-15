@@ -19,7 +19,7 @@ const Login = () => {
         surname: 'Marcos Martinez',
         imageUrl: 'https://randomuser.me/api/portraits/men/32.jpg', // Imagen de ejemplo
       });
-      alert('Login successful!');
+      console.log('User logged in:', username);
       navigate('/dogs'); // Redirige al usuario a la página DogList
     } else {
       alert('Invalid credentials');

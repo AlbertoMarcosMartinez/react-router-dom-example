@@ -8,6 +8,7 @@ import DogCharacteristics from './components/DogCharacteristics'
 import Login from './components/Login'
 import Header from './components/common/Header'
 import MainPage from './components/MainPage'
+import FAQs from './components/FAQs'
 import LoginButton from './components/buttons/LoginButton'
 import {AuthProvider}   from './contexts/AuthContext'
 
@@ -31,7 +32,7 @@ function App() {
                             <Route path="/dogs/:name" element={<DogDetail />}>
                                 <Route path="moredetails" element={<DogCharacteristics />} />
                             </Route>
-                            <Route path="/page2" element={<h1>Page 2</h1>} />
+                            <Route path="/FAQs" element={<FAQs/>} />
                             <Route path="/page3" element={<h1>Page 3</h1>} />
                             <Route path="/contact" element={<h1>Contact Page</h1>} />
                             <Route path="*" element={<h1>404 Not Found</h1>} />

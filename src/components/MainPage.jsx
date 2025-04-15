@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import AuthContext from '../contexts/AuthContext';
 import Login from './Login';
+import { WidthFull } from '@mui/icons-material';
 
 const MainPage = () => {
   const { isAuthenticated, user } = useContext(AuthContext);
 
   return (
-    <div>
-      <h1>Main Page</h1>
+    <div>      
       {isAuthenticated ? (
         <div>
           <p>Welcome, {user?.name} {user?.surname}!</p>
@@ -16,7 +16,7 @@ const MainPage = () => {
       ) : (
         <div>
           <p>Please log in to access more features.</p>
-          <Login />
+          <Login/>
         </div>
       )}
     </div>

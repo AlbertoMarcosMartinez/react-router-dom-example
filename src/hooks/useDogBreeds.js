@@ -14,7 +14,7 @@ const useDogBreeds = () => {
      console.log('Environment variable:', import.meta.env.VITE_DOGAPISUSCR);
   }
 
-  const ObtterListaRazasPerro = async (limit = 12) => {
+  const ObtterListaRazasPerro = async (limit = 15) => {
     setLoading(true);
     try {
       const response = await fetch(`https://api.thedogapi.com/v1/breeds?limit=${limit}`, {
@@ -39,23 +39,22 @@ const useDogBreeds = () => {
     }
   };
 
-  const obteenRazasAleatorias = async (amount = 12) => {
-
-    console.log('dogsApiKey: ', dogsApiKey)
+  const obteenRazasAleatorias = async (amount = 15) => {
+    console.log('dogsApiKey: ', dogsApiKey);
     setLoading(true);
     const data = await ObtterListaRazasPerro();
     if (data) {
       // Fisher-Yates Shuffle
-      const shuffled = [...data]; // copia del array
+      const shuffled = [...data];
       for (let i = shuffled.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
       }
 
-      const randomBreeds = shuffled.slice(0, amount);      
-      setLoading(false);
+      const randomBreeds = shuffled.slice(0, amount); // Selecciona las primeras "amount" razas
       setDogs(randomBreeds);
     }
+    setLoading(false);
   };
 
   const buscaPorNombre = async (breedName) => {

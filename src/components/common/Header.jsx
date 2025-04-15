@@ -4,11 +4,12 @@ import AuthContext from '../../contexts/AuthContext';
 import '../../css/Header.css';
 
 const Header = () => {
-  const { isAuthenticated, user, userImage, logout } = useContext(AuthContext);
+  const { isAuthenticated, setIsAuthenticated, user, userImage, logout } = useContext(AuthContext);
 
   const handleLogout = () => {
  
-    window.location.href = '/'; // Redirigir a la página de inicio después de cerrar sesión
+    window.location.href = '/'; 
+    setIsAuthenticated(false);
   }
 
       
@@ -34,7 +35,7 @@ const Header = () => {
           </div>
         ) : (
           <div className="header-right">
-            <a href="/login" className="login-button">Login</a>
+            
           </div>
         )}
       </div>
