@@ -9,12 +9,9 @@ import Login from './components/Login'
 import Header from './components/common/Header'
 import MainPage from './components/MainPage'
 import FAQs from './components/FAQs'
-import LoginButton from './components/buttons/LoginButton'
+import Contact from './components/Contact'
+import ProtectedRoute from './components/ProtectedRoute'
 import {AuthProvider}   from './contexts/AuthContext'
-
-// import {useAuth0} from '@auth0/auth0-react'
-// import DogCare from './components/DogCare'
-// import DogGallery from './components/DogGallery'
 
 function App() {            
 
@@ -27,14 +24,14 @@ function App() {
                     <main className="main-content">                        
                             <Routes>
                             <Route path="/" element={ <MainPage/>} />
-                            <Route path="/login" element={<Login />} />                            
-                            <Route path="/dogs" element={<DogList />} />
-                            <Route path="/dogs/:name" element={<DogDetail />}>
+                            <Route path="/login" element={<Login />} />                         
+                            
+                            <Route path="/dogs" element={<ProtectedRoute><DogList /></ProtectedRoute>} />
+                            <Route path="/dogs/:name" element={<ProtectedRoute><DogDetail /></ProtectedRoute>}>
                                 <Route path="moredetails" element={<DogCharacteristics />} />
                             </Route>
-                            <Route path="/FAQs" element={<FAQs/>} />
-                            <Route path="/page3" element={<h1>Page 3</h1>} />
-                            <Route path="/contact" element={<h1>Contact Page</h1>} />
+                            <Route path="/FAQs" element={<ProtectedRoute><FAQs /></ProtectedRoute>} />
+                            <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
                             <Route path="*" element={<h1>404 Not Found</h1>} />
                         </Routes>                       
                     </main>

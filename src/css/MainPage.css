@@ -1,0 +1,14 @@
+/* Contenedor principal */
+.container {
+    display: block;
+    width: 100%;
+    height: 100%; /* Ocupa todo el espacio disponible */
+    min-height: 100vh; /* Asegura que ocupe al menos la altura de la ventana */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    background-color: #ffffff;
+    padding: 24px 16px;    
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box; /* Incluye padding y border en el tamaño total */
+  }
