@@ -6,14 +6,15 @@ const MainPage = () => {
   const { isAuthenticated, user } = useContext(AuthContext);
 
   return (
-    <div className='container'>      
+    <div className="main-page">
+      <h1>Welcome to the Dog App</h1>      
       {isAuthenticated ? (
         <div>
           <p>Welcome, {user?.name} {user?.surname}!</p>
           <p>You are logged in. Enjoy exploring the app!</p>
         </div>
-      ) : (
-        <div className='container'>
+        ) : (
+        <div>
           <p>Please log in to access more features.</p>
           <Login/>
         </div>

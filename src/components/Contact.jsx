@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import '../css/Contact.css'; // Importa los estilos
+import '../css/Login.css'; // Reutiliza los estilos de Login
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -31,8 +31,8 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact-container">
-      <h1>Contáctanos</h1>
+    <div className="login-container">
+      <h2 className="login-title">Contáctanos</h2>
       {submitted ? (
         <div className="confirmation-message">
           <p>Gracias por tu mensaje. Nos pondremos en contacto contigo a la mayor brevedad posible.</p>
@@ -44,26 +44,42 @@ const Contact = () => {
           onSubmit={handleSubmit}
         >
           {() => (
-            <Form className="contact-form">
+            <Form className="login-form">
               <div className="form-group">
                 <label htmlFor="name">Nombre</label>
-                <Field type="text" id="name" name="name" />
+                <Field
+                  type="text"
+                  id="name"
+                  name="name"
+                  className="input"
+                />
                 <ErrorMessage name="name" component="div" className="error-message" />
               </div>
 
               <div className="form-group">
                 <label htmlFor="email">Correo electrónico</label>
-                <Field type="email" id="email" name="email" />
+                <Field
+                  type="email"
+                  id="email"
+                  name="email"
+                  className="input"
+                />
                 <ErrorMessage name="email" component="div" className="error-message" />
               </div>
 
               <div className="form-group">
                 <label htmlFor="message">Mensaje</label>
-                <Field as="textarea" id="message" name="message" rows="5" />
+                <Field
+                  as="textarea"
+                  id="message"
+                  name="message"
+                  rows="5"
+                  className="input"
+                />
                 <ErrorMessage name="message" component="div" className="error-message" />
               </div>
 
-              <button type="submit" className="submit-button">Enviar</button>
+              <button type="submit" className="login-button">Enviar</button>
             </Form>
           )}
         </Formik>

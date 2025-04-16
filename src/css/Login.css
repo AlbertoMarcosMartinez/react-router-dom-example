@@ -1,9 +1,10 @@
 .login-container {
-    width: 100%;
-    margin: 50px auto;
-    padding: 20px;
+    width: 80%;
+    min-width: 400px; 
+    margin: 20px auto;
+    padding: 5px;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 5px;
     background-color: #f9f9f9;
   }
   
@@ -20,11 +21,22 @@
     margin-bottom: 5px;
   }
   
+  /* Estilo para los inputs del formulario */
   .login-container input {
     width: 100%;
-    padding: 8px;
+    padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Efecto al enfocar el input */
+  .login-container input:focus {
+    border-color: #4caf50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
   }
   
   .login-container button {
@@ -39,4 +51,21 @@
   
   .login-container button:hover {
     background-color: #45a049;
+  }
+
+  /* Estilo para inputs con clase específica */
+  .input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .input:focus {
+    border-color: #4caf50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
   }

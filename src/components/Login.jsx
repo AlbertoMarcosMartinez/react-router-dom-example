@@ -12,7 +12,6 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     
-    // Simulación de validación de usuario
     if (username === 'admin' && password === 'password') {
       login({
         name: 'Alberto',
@@ -32,7 +31,7 @@ const Login = () => {
       <form onSubmit={handleLogin}>
         <div>
           <label>Username:</label>
-          <input
+          <input className='input'
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -41,7 +40,7 @@ const Login = () => {
         </div>
         <div>
           <label>Password:</label>
-          <input
+          <input className='input'
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
