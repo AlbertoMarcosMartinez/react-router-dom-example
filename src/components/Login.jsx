@@ -19,7 +19,7 @@ const Login = () => {
         imageUrl: 'https://randomuser.me/api/portraits/men/32.jpg', // Imagen de ejemplo
       });
       console.log('User logged in:', username);
-      navigate('/dogs'); // Redirige al usuario a la página DogList
+      navigate('/'); // Redirigir a la página principal después de iniciar sesión
     } else {
       alert('Invalid credentials');
     }

@@ -4,7 +4,7 @@ import AuthContext from '../../contexts/AuthContext';
 import '../../css/Header.css';
 
 const Header = () => {
-  const { isAuthenticated, setIsAuthenticated, user, userImage, logout } = useContext(AuthContext);
+  const { isAuthenticated, setIsAuthenticated, user, userImage } = useContext(AuthContext);
 
   const handleLogout = () => {
  
@@ -17,11 +17,11 @@ const Header = () => {
     <div className="header-container">
       <div className="header-inner">
         <div className="logo">
-          <h1>PETS LIST</h1>
+        <h1>Welcome to the Dog App</h1>
         </div>
 
         {isAuthenticated ? (
-          <div className="header-right-table">
+          <div className="header-right">
             <Avatar
               imageUrl={userImage}
               name={user?.name || 'Guest'}

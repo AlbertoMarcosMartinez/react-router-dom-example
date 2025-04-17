@@ -1,0 +1,12 @@
+/* Estilo para la imagen de perfil */
+#profile-image {
+  position: fixed; /* Fija la posición de la imagen */
+  bottom: 20px; /* Separa la imagen del final de la página */
+  right: 20px; /* La pega al lado derecho de la página */
+  width: 50px; /* Tamaño de la imagen */
+  height: 50px;
+  border-radius: 50%; /* Hace la imagen circular */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  border: 2px solid #ccc; /* Borde opcional */
+}
+

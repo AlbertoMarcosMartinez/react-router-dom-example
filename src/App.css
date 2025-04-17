@@ -112,9 +112,9 @@
 }
 
 .main-content {
-  flex: 1;
-  padding: 20px;
-  margin-left: 250px; /* Width of sidebar */
+  flex:auto;
+  padding: 5px;
+  margin-left: 50px; /* Width of sidebar */
   overflow-y: auto;
   background-color: #f9f9f9;
 }

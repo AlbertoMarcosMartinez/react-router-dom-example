@@ -1,22 +1,23 @@
 import React, { useContext } from 'react';
 import AuthContext from '../contexts/AuthContext';
 import Login from './Login';
+import Presentation from './Presentation';
+import ErrorBoundary from './ErrorBoundary';
 
 const MainPage = () => {
   const { isAuthenticated, user } = useContext(AuthContext);
 
+  console.log('User:', user);
+
   return (
-    <div className="main-page">
-      <h1>Welcome to the Dog App</h1>      
+    <div className="main-page">      
       {isAuthenticated ? (
-        <div>
-          <p>Welcome, {user?.name} {user?.surname}!</p>
-          <p>You are logged in. Enjoy exploring the app!</p>
-        </div>
-        ) : (
-        <div>
-          <p>Please log in to access more features.</p>
-          <Login/>
+        <ErrorBoundary>
+          <Presentation user={user?.name} lastName={user?.surname} />
+        </ErrorBoundary>
+      ) : (
+        <div>          
+          <Login />
         </div>
       )}
     </div>

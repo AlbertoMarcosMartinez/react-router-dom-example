@@ -1,6 +1,6 @@
 .login-container {
   width: 80%;
-  min-width: 800px; 
+  min-width: 1000px; 
   margin: 20px auto;
   padding: 5px;
   border: 1px solid #ccc;
@@ -72,7 +72,7 @@
 
 /* Estilo para el textarea */
 textarea.input {
-  width: 100%;
+  width: 80%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -81,7 +81,8 @@ textarea.input {
   resize: vertical; /* Permite redimensionar solo verticalmente */
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   margin-bottom: 10px;
-  min-height: 100px; /* Altura mínima para el textarea */
+  min-height: 100px; 
+  max-height: 300px; /* Altura máxima para el textarea */
 }
 
 /* Efecto al enfocar el textarea */

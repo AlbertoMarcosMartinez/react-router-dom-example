@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import useDogBreeds from '../hooks/useDogBreeds';
 import DogFinder from './DogFinder';
@@ -11,7 +11,6 @@ const DogList = () => {
   const { dogs, loading, error } = useDogBreeds();
   const [filteredDogs, setFilteredDogs] = useState([]);
   const [message, setMessage] = useState({ text: '', type: '' });
-  const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);  
 
   useEffect(() => {
     setFilteredDogs(dogs);
