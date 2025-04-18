@@ -30,10 +30,10 @@ function App() {
                             <Route path="/dogs" element={<ProtectedRoute><DogList /></ProtectedRoute>} />
                             <Route path="/dogs/:name" element={<ProtectedRoute><DogDetail /></ProtectedRoute>}>
                                 <Route path="moredetails" element={<DogCharacteristics />} />
-                                <Route path="gallery" element={<EnConstruccion namePage="Gallery"/>} />
-                                <Route path="CaresFYPet" element={<EnConstruccion namePage="CaresFYPet"/>} />
+                                <Route path="gallery" element={<EnConstruccion name="Gallery" desc="galeria de imágenes"/>} />
+                                <Route path="CaresFYPet" element={<EnConstruccion name="CaresFYPet" desc="cuidado de la mascota"/>} />
                             </Route>
-                            <Route path="/adopciones" element={<ProtectedRoute><EnConstruccion namePage="Adopciones"/> </ProtectedRoute>} />
+                            <Route path="/adopciones" element={<ProtectedRoute><EnConstruccion name="Adopciones" desc="adopciones"/> </ProtectedRoute>} />
                             <Route path="/FAQs" element={<ProtectedRoute><FAQs /></ProtectedRoute>} />
                             <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
                             <Route path="*" element={<h1>404 Not Found</h1>} />

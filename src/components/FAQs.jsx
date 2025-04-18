@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../css/faq.css'; // Importa los estilos CSS
+import '../css/faq.css'; 
 
 const faqs = [
   {
