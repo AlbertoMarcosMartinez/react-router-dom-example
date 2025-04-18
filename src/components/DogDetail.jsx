@@ -13,7 +13,7 @@ const DogDetail = () => {
       text: (dogName) => `${dogName} en detalle`
     },
     { 
-      to: "cares", 
+      to: "CaresFYPet", 
       text: (dogName) => `Cuidados especiales para tu ${dogName}`
     },
     { 

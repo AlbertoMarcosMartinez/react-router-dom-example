@@ -40,7 +40,7 @@ const SideBar = () => {
                         alignment="right"
                         backgroundColor="#f0f0f0"
                         textColor="#333"
-                        border="2px solid #ccc"
+                        // border="2px solid #ccc"
                         onClick={() => alert('Avatar clicked!')}
                         showName={false}
                     />
