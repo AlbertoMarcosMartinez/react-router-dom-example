@@ -30,6 +30,7 @@ function App() {
                             <Route path="/dogs" element={<ProtectedRoute><DogList /></ProtectedRoute>} />
                             <Route path="/dogs/:name" element={<ProtectedRoute><DogDetail /></ProtectedRoute>}>
                                 <Route path="moredetails" element={<DogCharacteristics />} />
+                                <Route path="gallery" element={<EnConstruccion namePage="Gallery"/>} />
                             </Route>
                             <Route path="/adopciones" element={<ProtectedRoute><EnConstruccion namePage="Adopciones"/> </ProtectedRoute>} />
                             <Route path="/FAQs" element={<ProtectedRoute><FAQs /></ProtectedRoute>} />
