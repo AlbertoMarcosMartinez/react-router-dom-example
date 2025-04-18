@@ -12,7 +12,7 @@
 }
 
 .container form div {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .container label {
@@ -22,8 +22,8 @@
 
 /* Estilo para los inputs del formulario */
 .container input {
-  width: 100%;
-  padding: 12px;
+  width: 80%;
+  padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
@@ -41,7 +41,7 @@
 .container   {
   width: 100%;
   padding: 10px;
-  background-color: #4caf50;
+  background-color: #c7d1c7;
   color: white;
   border: none;
   border-radius: 4px;
@@ -54,14 +54,13 @@
 
 /* Estilo para inputs con clase específica */
 .input {
-  width: 100%;
-  padding: 12px;
+  width: 50%;
+  padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 1rem;
-  margin-bottom: 10px;
+  font-size: 1rem;  
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
+} 
 
 .input:focus {
   border-color: #4caf50;
@@ -72,14 +71,14 @@
 /* Estilo para el textarea */
 textarea.input {
   width: 80%;
-  padding: 12px;
+  padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
   box-sizing: border-box;
   resize: vertical; /* Permite redimensionar solo verticalmente */
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  margin-bottom: 10px;
+  margin-bottom: 2px;
   min-height: 100px; 
   max-height: 300px; /* Altura máxima para el textarea */
 }
@@ -93,11 +92,16 @@ textarea.input:focus {
 
 /* Mensaje de confirmación */
 .confirmation-message {
+  display: flex; /* Activa Flexbox */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  width: 80%;
+  margin: 20px auto; /* Centra el div horizontalmente y añade margen superior/inferior */
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   background-color: #e8f5e9;
   border: 1px solid #c8e6c9;
-  border-radius: 8px;
+  border-radius: 5px;
   color: #2e7d32;
   font-size: 1rem;
 }
