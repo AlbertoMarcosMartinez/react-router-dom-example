@@ -114,7 +114,6 @@
 .main-content {
   flex:auto;
   padding: 5px;
-  margin-left: 50px; /* Width of sidebar */
   overflow-y: auto;
   background-color: #f9f9f9;
 }

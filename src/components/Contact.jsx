@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import '../css/Login.css'; // Reutiliza los estilos de Login
+import '../css/Contact.css'; // Reutiliza los estilos de Login
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);

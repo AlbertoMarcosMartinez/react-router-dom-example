@@ -306,14 +306,6 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.main-content {
-    margin-top: 80px; /* header height + some spacing */
-    margin-left: 250px; /* Same as sidebar width */
-    padding: 20px;
-    background-color: #f9f9f9;
-    min-height: calc(100vh - 80px);
-}
-
 .sidebar {
     position: fixed;
     top: 0;
