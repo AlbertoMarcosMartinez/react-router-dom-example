@@ -1,0 +1,43 @@
+[
+    {
+      "id": 1,
+      "categoria": "Alimentación",
+      "pregunta": "¿Cuántas veces al día debo alimentar a mi perro adulto?",
+      "respuestas": [
+        "Lo ideal es alimentar a un perro adulto dos veces al día.",
+        "Algunos perros pueden comer una vez al día, pero dividir la ración en dos comidas es más recomendable.",
+        "Es importante mantener horarios fijos para evitar problemas digestivos."
+      ]
+    },
+    {
+      "id": 2,
+      "categoria": "Alimentación",
+      "pregunta": "¿Puedo darle huesos a mi perro?",
+      "respuestas": [
+        "Los huesos cocidos pueden astillarse y causar daño, mejor evitarlos.",
+        "Los huesos crudos, grandes y bajo supervisión pueden ser seguros, pero consulta siempre con el veterinario.",
+        "Hay alternativas seguras como huesos artificiales o juguetes dentales."
+      ]
+    },
+    {
+      "id": 3,
+      "categoria": "Adiestramiento",
+      "pregunta": "¿Cuál es la mejor edad para empezar a entrenar a un cachorro?",
+      "respuestas": [
+        "Desde las 8 semanas ya se puede comenzar con comandos básicos.",
+        "La socialización temprana es clave entre las 8 y 16 semanas.",
+        "Evita métodos de castigo y enfócate en el refuerzo positivo."
+      ]
+    },
+    {
+      "id": 4,
+      "categoria": "Adiestramiento",
+      "pregunta": "¿Cómo enseño a mi perro a hacer sus necesidades fuera?",
+      "respuestas": [
+        "Sácalo frecuentemente, especialmente después de comer o dormir.",
+        "Recompénsalo con entusiasmo cuando lo haga en el lugar correcto.",
+        "Evita regañarlo si lo hace dentro, mejor ignóralo y refuerza lo positivo."
+      ]
+    }
+  ]
+  
