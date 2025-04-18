@@ -32,12 +32,17 @@ const SideBar = () => {
             </ul>
             {isAuthenticated && (
                 <div className="rounded-profile-small" id="profile-small">
-                    <Avatar
+                     <Avatar
                         imageUrl={userImage}
                         name={user?.name || 'Guest'}
                         surname={user?.surname || ''}
-                        size="small"
-                        showName={true}
+                        size="small"              
+                        alignment="right"
+                        backgroundColor="#f0f0f0"
+                        textColor="#333"
+                        border="2px solid #ccc"
+                        onClick={() => alert('Avatar clicked!')}
+                        showName={false}
                     />
                 </div>
             )}            

@@ -1,28 +1,27 @@
-.login-container {
-  width: 80%;
-  min-width: 1000px; 
-  margin: 20px auto;
+.container {
+  width: 100%;   
+  margin: 10px auto;
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f9f9f9;
 }
 
-.login-container h2 {
+.container h2 {
   text-align: center;
 }
 
-.login-container form div {
+.container form div {
   margin-bottom: 15px;
 }
 
-.login-container label {
+.container label {
   display: block;
   margin-bottom: 5px;
 }
 
 /* Estilo para los inputs del formulario */
-.login-container input {
+.container input {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -33,13 +32,13 @@
 }
 
 /* Efecto al enfocar el input */
-.login-container input:focus {
+.container input:focus {
   border-color: #4caf50;
   outline: none;
   box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
 
-.login-container button {
+.container   {
   width: 100%;
   padding: 10px;
   background-color: #4caf50;
@@ -49,7 +48,7 @@
   cursor: pointer;
 }
 
-.login-container button:hover {
+.container button:hover {
   background-color: #45a049;
 }
 

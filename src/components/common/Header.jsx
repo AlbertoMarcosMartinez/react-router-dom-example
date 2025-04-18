@@ -21,17 +21,21 @@ const Header = () => {
         </div>
 
         {isAuthenticated ? (
-          <div className="header-right">
-            <Avatar
-              imageUrl={userImage}
-              name={user?.name || 'Guest'}
-              surname={user?.surname || ''}
-              size="medium"
-              showName={true}
-            />
-            <button className="logout-button" onClick={handleLogout}>
-              Logout
-            </button>
+            <div className="header-right">
+              <Avatar
+                imageUrl={userImage}
+                name={user?.name || 'Guest'}
+                surname={user?.surname || ''}
+                size="medium"
+                alignment="right"
+                backgroundColor="#f0f0f0"
+                textColor="#333"
+                onClick={() => alert('Avatar clicked!')}
+                showName={true}
+              />
+              <button className="logout-button" onClick={handleLogout}>
+                Logout
+              </button>
           </div>
         ) : (
           <div className="header-right">

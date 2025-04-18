@@ -7,8 +7,8 @@
     align-items: center; /* Centra horizontalmente */
     justify-content: center; /* Centra verticalmente */
     background-color: #ffffff;
-    padding: 24px 16px;    
-    margin: 0 auto;
+    padding: 10px;    
+    margin: 5 auto;
     font-family: Arial, sans-serif;
     box-sizing: border-box; /* Incluye padding y border en el tamaño total */
   }

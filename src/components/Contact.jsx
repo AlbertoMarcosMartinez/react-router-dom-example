@@ -31,8 +31,8 @@ const Contact = () => {
   };
 
   return (
-    <div className="login-container">
-      <h2 className="login-title">Contáctanos</h2>
+    <div className="container">
+      <h2>Contáctanos</h2>
       {submitted ? (
         <div className="confirmation-message">
           <p>Gracias por tu mensaje. Nos pondremos en contacto contigo a la mayor brevedad posible.</p>
@@ -79,7 +79,7 @@ const Contact = () => {
                 <ErrorMessage name="message" component="div" className="error-message" />
               </div>
 
-              <button type="submit" className="login-button">Enviar</button>
+              <button type="submit" className="button">Enviar</button>
             </Form>
           )}
         </Formik>

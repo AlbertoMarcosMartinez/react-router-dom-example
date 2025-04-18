@@ -1,32 +1,38 @@
 .header-container {
-    width: 100%;
-    background-color: #fff;
-    padding: 1px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  }
-  
-  .header-inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .logo {
-    width: 100%;   
-    text-align: center;    
-  }
-  
-  .header-right {
-    display: flex;
-    align-items: center;
-  }
-  
-  .header-list {
-    display: flex;
-    list-style: none;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
-    align-items: center;
-  }
-  
+  display: flex;
+  justify-content: space-between; /* Espacia los elementos entre sí */
+  align-items: center;
+  padding: 0 10px; /* Añade un pequeño margen interno */
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Empuja los elementos hacia la derecha */
+}
+
+.logout-button {
+  margin-left: 10px; /* Espaciado entre el avatar y el botón */
+  padding: 8px 12px;
+  background-color: #e53935;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #c62828;
+}

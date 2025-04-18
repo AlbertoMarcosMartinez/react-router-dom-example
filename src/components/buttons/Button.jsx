@@ -7,14 +7,10 @@ const Button = ({name}) => {
             <div className="center-button">
             <button className="btn btn-primary loginBtn"
             onClick={() => loginWithRedirect()}>
-            Log In</button>
+            {name}</button>
             </div>
         );
-    }
+    }     
+};  
 
-    propTypes: {
-        name: PropTypes.string.isRequired,
-    };      
-};
- 
 export default Button;
