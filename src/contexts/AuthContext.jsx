@@ -4,6 +4,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isSidebarDisabled, setIsSidebarDisabled] = useState(false); 
   const [user, setUser] = useState(null);
   const [userImage, setUserImage] = useState(null);
 
@@ -20,7 +21,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, userImage, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, user, isSidebarDisabled, setIsSidebarDisabled, userImage, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

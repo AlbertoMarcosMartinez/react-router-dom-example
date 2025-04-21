@@ -1,18 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import Avatar from './Avatar'; 
 import AuthContext from '../../contexts/AuthContext';
+import Modal from '../Modal'; 
 import '../../css/Header.css';
 
 const Header = () => {
   const { isAuthenticated, setIsAuthenticated, user, userImage } = useContext(AuthContext);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleLogout = () => {
+  const handleOpenModal = () => {
+    setIsOpen(true);
+  };
+
+  // const handleLogout = () => {
  
-    window.location.href = '/'; 
-    setIsAuthenticated(false);
-  }
+  //   window.location.href = '/'; 
+  //   setIsAuthenticated(false);
+  // }
 
-      
   return (
     <div className="header-container">
       <div className="header-inner">
@@ -33,9 +38,10 @@ const Header = () => {
                 onClick={() => alert('Avatar clicked!')}
                 showName={true}
               />
-              <button className="logout-button" onClick={handleLogout}>
+              <button className="logout-button" onClick={handleOpenModal}>
                 Logout
               </button>
+              {isOpen && <Modal closeModal={setIsOpen}/>}
           </div>
         ) : (
           <div className="header-right">

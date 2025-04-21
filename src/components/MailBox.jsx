@@ -25,10 +25,10 @@ function MailBox() {
         setPaginaActual(nuevaPagina);
       }
     };
-  
+
     return (
       <div className="mailbox-container">
-        <h2 className="mailbox-title">Preguntas Frecuentes sobre Perros</h2>
+        <h2 className="mailbox-title">Hilo perruno</h2>
         <Button variant="contained" color="primary" size="small" className="mailbox-button">Crear Pregunta</Button>
         {preguntasPagina.map((item) => (
           <div key={item.id} className="mail-card">
