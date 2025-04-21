@@ -74,3 +74,51 @@
     background-color: #33b82f; /* Cambia el color al pasar el mouse */
     transform: scale(1.05); /* Efecto de escala */
   }
+
+    .mail-button:active {
+        transform: scale(0.95); /* Efecto de escala al hacer clic */
+    }
+
+    /* CSS changes */
+.mail-actions {
+    display: flex;
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+    align-items: center; /* Alinea verticalmente los botones */
+    gap: 10px; /* Espaciado entre los botones si hay más de uno */
+    margin-top: 10px; /* Añade un margen superior para separar los botones del contenido */
+  }
+
+  .paginacion {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .pagina-btn,
+  .pagina-numero {
+    background-color: #4a90e2;
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  
+  .pagina-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .pagina-numero.activo {
+    background-color: #2c6ed5;
+  }
+  
+  .pagina-numero:hover,
+  .pagina-btn:hover:not(:disabled) {
+    background-color: #357bd8;
+  }
+  

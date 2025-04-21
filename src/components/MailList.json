@@ -38,6 +38,76 @@
         "Recompénsalo con entusiasmo cuando lo haga en el lugar correcto.",
         "Evita regañarlo si lo hace dentro, mejor ignóralo y refuerza lo positivo."
       ]
+    },
+    {
+      "id": 5,
+      "categoria": "Salud",
+      "pregunta": "¿Con qué frecuencia debo llevar a mi perro al veterinario?",
+      "respuestas": [
+        "Al menos una vez al año para revisión general y vacunas.",
+        "Los cachorros y perros mayores pueden necesitar visitas más frecuentes.",
+        "Consulta siempre ante cualquier cambio en su comportamiento o salud."
+      ]
+    },
+    {
+      "id": 6,
+      "categoria": "Alimentación",
+      "pregunta": "¿Mi perro puede comer fruta?",
+      "respuestas": [
+        "Sí, algunas frutas como manzana, plátano o sandía son seguras en pequeñas cantidades.",
+        "Evita frutas tóxicas como uvas, pasas, aguacate o cítricos.",
+        "Recuerda quitar siempre las semillas o huesos."
+      ]
+    },
+    {
+      "id": 7,
+      "categoria": "Actividad Física",
+      "pregunta": "¿Cuánto ejercicio necesita un perro al día?",
+      "respuestas": [
+        "Depende de la raza, edad y estado de salud.",
+        "Los perros activos necesitan entre 30 minutos y 2 horas diarias.",
+        "Paseos, juegos y estimulación mental también cuentan como ejercicio."
+      ]
+    },
+    {
+      "id": 8,
+      "categoria": "Convivencia",
+      "pregunta": "¿Cómo evito que mi perro ladre excesivamente?",
+      "respuestas": [
+        "Identifica la causa del ladrido: aburrimiento, miedo, alerta o ansiedad.",
+        "Entrena con comandos como 'silencio' y refuerza cuando se calme.",
+        "Evita gritar o castigar; esto puede empeorar el comportamiento."
+      ]
+    },
+    {
+      "id": 9,
+      "categoria": "Salud",
+      "pregunta": "¿Cómo detecto si mi perro tiene parásitos?",
+      "respuestas": [
+        "Signos comunes incluyen picor, pérdida de peso, vómitos o diarrea.",
+        "En las heces pueden verse lombrices o huevos.",
+        "Visita al veterinario y sigue un plan regular de desparasitación."
+      ]
+    },
+    {
+      "id": 10,
+      "categoria": "Adiestramiento",
+      "pregunta": "¿Es recomendable usar premios para entrenar?",
+      "respuestas": [
+        "Sí, el refuerzo positivo es uno de los métodos más efectivos.",
+        "Utiliza snacks saludables o caricias según la preferencia del perro.",
+        "Reduce los premios gradualmente una vez que aprenda el comportamiento."
+      ]
+    },
+    {
+      "id": 11,
+      "categoria": "Convivencia",
+      "pregunta": "¿Mi perro puede dormir en la misma cama que yo?",
+      "respuestas": [
+        "Depende de tus preferencias y si el perro está bien educado.",
+        "Muchos perros disfrutan de la cercanía con sus dueños.",
+        "Asegúrate de que no afecte su independencia ni su conducta."
+      ]
     }
   ]
   
