@@ -11,7 +11,8 @@ const SideBar = () => {
         { text: 'Home', path: '/' , visible: true },
         { text: 'Dogs', path: '/dogs', visible: isAuthenticated },  
         { text: 'Adoptions', path: '/adopciones' , visible: isAuthenticated },     
-        { text: 'FAQ', path: 'FAQs' , visible: isAuthenticated },        
+        { text: 'FAQ', path: 'FAQs' , visible: isAuthenticated },  
+        { text: 'Mailbox', path: '/mailbox' , visible: isAuthenticated },         
         { text: 'Contact', path: '/contact' , visible: isAuthenticated },
         { text: 'About', path: '/about' , visible: isAuthenticated },
         

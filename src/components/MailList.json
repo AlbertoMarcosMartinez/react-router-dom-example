@@ -1,0 +1,113 @@
+[
+    {
+      "id": 1,
+      "categoria": "Alimentación",
+      "pregunta": "¿Cuántas veces al día debo alimentar a mi perro adulto?",
+      "respuestas": [
+        "Lo ideal es alimentar a un perro adulto dos veces al día.",
+        "Algunos perros pueden comer una vez al día, pero dividir la ración en dos comidas es más recomendable.",
+        "Es importante mantener horarios fijos para evitar problemas digestivos."
+      ]
+    },
+    {
+      "id": 2,
+      "categoria": "Alimentación",
+      "pregunta": "¿Puedo darle huesos a mi perro?",
+      "respuestas": [
+        "Los huesos cocidos pueden astillarse y causar daño, mejor evitarlos.",
+        "Los huesos crudos, grandes y bajo supervisión pueden ser seguros, pero consulta siempre con el veterinario.",
+        "Hay alternativas seguras como huesos artificiales o juguetes dentales."
+      ]
+    },
+    {
+      "id": 3,
+      "categoria": "Adiestramiento",
+      "pregunta": "¿Cuál es la mejor edad para empezar a entrenar a un cachorro?",
+      "respuestas": [
+        "Desde las 8 semanas ya se puede comenzar con comandos básicos.",
+        "La socialización temprana es clave entre las 8 y 16 semanas.",
+        "Evita métodos de castigo y enfócate en el refuerzo positivo."
+      ]
+    },
+    {
+      "id": 4,
+      "categoria": "Adiestramiento",
+      "pregunta": "¿Cómo enseño a mi perro a hacer sus necesidades fuera?",
+      "respuestas": [
+        "Sácalo frecuentemente, especialmente después de comer o dormir.",
+        "Recompénsalo con entusiasmo cuando lo haga en el lugar correcto.",
+        "Evita regañarlo si lo hace dentro, mejor ignóralo y refuerza lo positivo."
+      ]
+    },
+    {
+      "id": 5,
+      "categoria": "Salud",
+      "pregunta": "¿Con qué frecuencia debo llevar a mi perro al veterinario?",
+      "respuestas": [
+        "Al menos una vez al año para revisión general y vacunas.",
+        "Los cachorros y perros mayores pueden necesitar visitas más frecuentes.",
+        "Consulta siempre ante cualquier cambio en su comportamiento o salud."
+      ]
+    },
+    {
+      "id": 6,
+      "categoria": "Alimentación",
+      "pregunta": "¿Mi perro puede comer fruta?",
+      "respuestas": [
+        "Sí, algunas frutas como manzana, plátano o sandía son seguras en pequeñas cantidades.",
+        "Evita frutas tóxicas como uvas, pasas, aguacate o cítricos.",
+        "Recuerda quitar siempre las semillas o huesos."
+      ]
+    },
+    {
+      "id": 7,
+      "categoria": "Actividad Física",
+      "pregunta": "¿Cuánto ejercicio necesita un perro al día?",
+      "respuestas": [
+        "Depende de la raza, edad y estado de salud.",
+        "Los perros activos necesitan entre 30 minutos y 2 horas diarias.",
+        "Paseos, juegos y estimulación mental también cuentan como ejercicio."
+      ]
+    },
+    {
+      "id": 8,
+      "categoria": "Convivencia",
+      "pregunta": "¿Cómo evito que mi perro ladre excesivamente?",
+      "respuestas": [
+        "Identifica la causa del ladrido: aburrimiento, miedo, alerta o ansiedad.",
+        "Entrena con comandos como 'silencio' y refuerza cuando se calme.",
+        "Evita gritar o castigar; esto puede empeorar el comportamiento."
+      ]
+    },
+    {
+      "id": 9,
+      "categoria": "Salud",
+      "pregunta": "¿Cómo detecto si mi perro tiene parásitos?",
+      "respuestas": [
+        "Signos comunes incluyen picor, pérdida de peso, vómitos o diarrea.",
+        "En las heces pueden verse lombrices o huevos.",
+        "Visita al veterinario y sigue un plan regular de desparasitación."
+      ]
+    },
+    {
+      "id": 10,
+      "categoria": "Adiestramiento",
+      "pregunta": "¿Es recomendable usar premios para entrenar?",
+      "respuestas": [
+        "Sí, el refuerzo positivo es uno de los métodos más efectivos.",
+        "Utiliza snacks saludables o caricias según la preferencia del perro.",
+        "Reduce los premios gradualmente una vez que aprenda el comportamiento."
+      ]
+    },
+    {
+      "id": 11,
+      "categoria": "Convivencia",
+      "pregunta": "¿Mi perro puede dormir en la misma cama que yo?",
+      "respuestas": [
+        "Depende de tus preferencias y si el perro está bien educado.",
+        "Muchos perros disfrutan de la cercanía con sus dueños.",
+        "Asegúrate de que no afecte su independencia ni su conducta."
+      ]
+    }
+  ]
+  

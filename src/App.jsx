@@ -11,6 +11,7 @@ import Header from './components/common/Header'
 import MainPage from './components/MainPage'
 import FAQs from './components/FAQs'
 import Contact from './components/Contact'
+import MailBox from './components/MailBox'
 import ProtectedRoute from './components/ProtectedRoute'
 import EnConstruccion from './components/EnConstruccion'
 
@@ -36,6 +37,7 @@ function App() {
                             <Route path="/adopciones" element={<ProtectedRoute><EnConstruccion name="Adopciones" desc="adopciones"/> </ProtectedRoute>} />
                             <Route path="/FAQs" element={<ProtectedRoute><FAQs /></ProtectedRoute>} />
                             <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
+                            <Route path="/mailbox" element={<ProtectedRoute><MailBox /></ProtectedRoute>} />
                             <Route path="*" element={<h1>404 Not Found</h1>} />
                         </Routes>                       
                     </main>
