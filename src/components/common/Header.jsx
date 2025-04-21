@@ -4,7 +4,7 @@ import AuthContext from '../../contexts/AuthContext';
 import Modal from '../Modal'; 
 import '../../css/Header.css';
 
-const Header = () => {
+const Header = ({openModal}) => {
   const { isAuthenticated, setIsAuthenticated, user, userImage } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -38,10 +38,10 @@ const Header = () => {
                 onClick={() => alert('Avatar clicked!')}
                 showName={true}
               />
-              <button className="logout-button" onClick={handleOpenModal}>
+              <button className="logout-button"  onClick={openModal}>
                 Logout
               </button>
-              {isOpen && <Modal closeModal={setIsOpen}/>}
+            
           </div>
         ) : (
           <div className="header-right">
