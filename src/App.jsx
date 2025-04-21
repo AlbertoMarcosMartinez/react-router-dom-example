@@ -1,5 +1,5 @@
 import './App.css'
-import React from 'react'
+import React, { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import {AuthProvider}   from './contexts/AuthContext'
 import SideBar from './components/SideBar'
@@ -14,13 +14,15 @@ import Contact from './components/Contact'
 import MailBox from './components/MailBox'
 import ProtectedRoute from './components/ProtectedRoute'
 import EnConstruccion from './components/EnConstruccion'
+import Modal from './components/Modal'
 
 function App() {            
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <div className="App">                        
             <AuthProvider>
-                <Header/>
+                <Header openModal={() => setIsModalOpen(true)} />
                 <div className="layout">
                     <SideBar />
                     <main className="main-content">                        
@@ -42,6 +44,7 @@ function App() {
                         </Routes>                       
                     </main>
                 </div>                
+                {isModalOpen && <Modal closeModal={setIsModalOpen} />}
             </AuthProvider>
         </div>  
     )
