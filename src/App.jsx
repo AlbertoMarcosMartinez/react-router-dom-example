@@ -2,7 +2,6 @@ import './App.css'
 import React, { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import {AuthProvider}   from './contexts/AuthContext'
-import SideBar from './components/SideBar'
 import DogList from './components/DogList'
 import DogDetail from './components/DogDetail'
 import DogCharacteristics from './components/DogCharacteristics'
@@ -15,6 +14,7 @@ import MailBox from './components/MailBox'
 import ProtectedRoute from './components/ProtectedRoute'
 import EnConstruccion from './components/EnConstruccion'
 import Modal from './components/Modal'
+import Navigation from './components/common/Navigation';
 
 function App() {            
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,9 +23,10 @@ function App() {
         <div className="App">                        
             <AuthProvider>
                 <Header openModal={() => setIsModalOpen(true)} />
+                <Navigation />
                 <div className="layout">
-                    <SideBar />
-                    <main className="main-content">                        
+                    <main className="main-content">
+                                            
                         <Routes>
                             <Route path="/" element={ <MainPage/>} />
                             <Route path="/login" element={<Login />} />                         

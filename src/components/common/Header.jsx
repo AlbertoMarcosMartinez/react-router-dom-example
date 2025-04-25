@@ -1,31 +1,22 @@
 import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import Avatar from './Avatar'; 
 import AuthContext from '../../contexts/AuthContext';
 import Modal from '../Modal'; 
 import '../../css/Header.css';
 
 const Header = ({openModal}) => {
-  const { isAuthenticated, setIsAuthenticated, user, userImage } = useContext(AuthContext);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleOpenModal = () => {
-    setIsOpen(true);
-  };
-
-  // const handleLogout = () => {
- 
-  //   window.location.href = '/'; 
-  //   setIsAuthenticated(false);
-  // }
+  const { isAuthenticated, user, userImage } = useContext(AuthContext);
 
   return (
     <div className="header-container">
       <div className="header-inner">
         <div className="logo">
-        <h1>Welcome to the Dog App</h1>
+          <h1>Welcome to the Dog App</h1>
         </div>
 
         {isAuthenticated ? (
+          <>
             <div className="header-right">
               <Avatar
                 imageUrl={userImage}
@@ -38,14 +29,13 @@ const Header = ({openModal}) => {
                 onClick={() => alert('Avatar clicked!')}
                 showName={true}
               />
-              <button className="logout-button"  onClick={openModal}>
+              <button className="logout-button" onClick={openModal}>
                 Logout
               </button>
-            
-          </div>
+            </div>           
+          </>
         ) : (
           <div className="header-right">
-            
           </div>
         )}
       </div>
