@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import data from "./MailList.json";
+import Paginador from "./common/Paginador";
 import "../css/MailBox.css"; 
 import { Button } from "@mui/material";
 
@@ -47,33 +48,11 @@ function MailBox() {
         </div>
         ))}
   
-        <div className="paginacion">
-          <button
-            className="pagina-btn"
-            onClick={() => cambiarPagina(paginaActual - 1)}
-            disabled={paginaActual === 1}
-          >
-            ← Anterior
-          </button>
-  
-          {[...Array(totalPaginas)].map((_, index) => (
-            <button
-              key={index}
-              className={`pagina-numero ${paginaActual === index + 1 ? "activo" : ""}`}
-              onClick={() => cambiarPagina(index + 1)}
-            >
-              {index + 1}
-            </button>
-          ))}
-  
-          <button
-            className="pagina-btn"
-            onClick={() => cambiarPagina(paginaActual + 1)}
-            disabled={paginaActual === totalPaginas}
-          >
-            Siguiente →
-          </button>
-        </div>
+        <Paginador
+          paginaActual={paginaActual}
+          totalPaginas={totalPaginas}
+          onPageChange={cambiarPagina}
+        />
       </div>
     );
   }
