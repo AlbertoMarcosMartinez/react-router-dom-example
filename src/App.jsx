@@ -18,11 +18,13 @@ import Navigation from './components/common/Navigation';
 
 function App() {            
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(false);
+    const toggleTheme = () => setIsDarkMode(prev => !prev);
 
     return (
         <div className="App">                        
             <AuthProvider>
-                <Header openModal={() => setIsModalOpen(true)} />
+                <Header openModal={() => setIsModalOpen(true)} isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
                 <Navigation />
                 <div className="layout">
                     <main className="main-content">
