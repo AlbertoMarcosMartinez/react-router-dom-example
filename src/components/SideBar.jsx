@@ -27,7 +27,7 @@ const SideBar = () => {
                             <Link
                                 to={isSideBarDisabled ? '#' : button.path} 
                                 className={`nav-button ${isSideBarDisabled ? 'disabled' : ''}`} 
-                                aria-disabled={isSideBarDisabled} // Atributo de accesibilidad
+                                aria-disabled={isSideBarDisabled} 
                                 onClick={e => {
                                     if (isSideBarDisabled) e.preventDefault(); 
                                 }}

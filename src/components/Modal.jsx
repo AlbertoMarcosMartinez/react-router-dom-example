@@ -15,7 +15,7 @@ const Modal = ({ closeModal }) => {
 
   const handleLogout = () => {
     console.log("Cerrar sesión");
-    window.location.href = "/";
+    window.location.href = "/login";
     setIsAuthenticated(false);
   };
 
