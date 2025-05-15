@@ -24,18 +24,21 @@
 
 /* Lista de preguntas frecuentes */
 .faq-list {
-  width: 100%; /* Ocupa todo el ancho disponible */
-  max-width: 800px; /* Limita el ancho máximo */
-  margin-top: 20px;
-  border-top: 1px solid #e5e5e5;
-  text-align: left; /* Asegura que el texto esté alineado a la izquierda */
+  width: 100%;           /* Ocupa todo el ancho disponible de su contenedor */
+  max-width: none;
+  margin: 0;
+  border-top: none;
+  text-align: left;
+  padding: 0;
 }
 
 /* Elemento de la lista */
 .faq-item {
   padding: 16px 0;
   border-bottom: 1px solid #e5e5e5;
-  transition: all 0.3s ease; /* Transición suave */
+  border-radius: 0;       
+  margin: 0;
+  transition: all 0.3s ease;
 }
 
 /* Botón de pregunta */
@@ -43,6 +46,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 0;       
   width: 100%;
   background: none;
   border: none;
@@ -52,10 +56,11 @@
   color: #333333;
   cursor: pointer;
   padding: 0;
+  margin: 0;
 }
 
 .faq-question:hover {
-  color: #4caf50; /* Cambia el color al pasar el mouse */
+  color: #0479fc; /* Cambia el color al pasar el mouse */
 }
 
 /* Iconos de expandir/colapsar */
@@ -69,7 +74,7 @@
 }
 
 .faq-icon:hover {
-  color: #4caf50;
+  color: #0479fc;
 }
 
 /* Respuesta */
