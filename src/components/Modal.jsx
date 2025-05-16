@@ -13,10 +13,14 @@ const Modal = ({ closeModal }) => {
     return () => setIsSidebarDisabled(false);
   }, [setIsSidebarDisabled]);
 
+  // Función para manejar el cierre de sesión
   const handleLogout = () => {
+    debugger;
     console.log("Cerrar sesión");
-    window.location.href = "/";
-    setIsAuthenticated(false);
+    window.location.href = "/";    
+    localStorage.removeItem("isAuthenticated");
+    localStorage.removeItem("user");  
+    localStorage.removeItem("userImage");
   };
 
   return (
