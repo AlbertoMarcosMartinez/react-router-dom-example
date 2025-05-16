@@ -1,8 +1,8 @@
 .header-container {
   display: flex;
-  justify-content: space-between; /* Espacia los elementos entre sí */
+  justify-content: space-between;
   align-items: center;
-  padding: 0 10px; /* Añade un pequeño margen interno */
+  padding: 0 10px;
   background-color: #f9f9f9;
   border-bottom: 1px solid #ddd;
   animation: fadeInDown 0.7s;
@@ -62,4 +62,24 @@
   background: #4caf50;
   border-radius: 50%;
   border: 2px solid #fff;
+}
+
+.header-container.light {
+  background: #fff;
+  color: #222;
+}
+
+.header-container.dark {
+  background: #23272f;
+  color: #fafafa;
+}
+
+.header-container.light .logo h1{
+  color: #222 !important;
+  background: transparent;
+}
+
+.header-container.dark .logo h1{
+  color: #fafafa !important;
+  background: transparent;
 }

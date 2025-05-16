@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Avatar from './Avatar'; 
 import AuthContext from '../../contexts/AuthContext';
-import '../../css/Header.css';
 import Switch from '@mui/material/Switch';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
@@ -9,6 +8,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 import { useNavigate } from 'react-router-dom';
+import '../../css/Header.css';
 
 const Header = ({ openModal, isDarkMode, toggleTheme }) => {
   console.log('toggleTheme:', toggleTheme); 
@@ -17,9 +17,10 @@ const Header = ({ openModal, isDarkMode, toggleTheme }) => {
   const navigate = useNavigate();
  
   const handleThemeToggle = () => { 
-    console.log(`[Theme] Cambiando tema. Nuevo valor: ${!isDarkMode ? 'Oscuro' : 'Claro'}`);
-    toggleTheme();
-  } 
+  const currentTime = new Date().toLocaleTimeString(); 
+  console.log(`[Theme] [${currentTime}] Cambiando tema. Nuevo valor: ${!isDarkMode ? 'Oscuro' : 'Claro'}` );
+  toggleTheme();
+}
   const handleMenuItemClick = (event) => {
     const option = event.currentTarget.innerText;
     if (option === "Perfil") {
@@ -41,10 +42,10 @@ const Header = ({ openModal, isDarkMode, toggleTheme }) => {
   };
 
   return (
-    <div className="header-container">
+    <div className={`header-container ${isDarkMode ? 'dark' : 'light'}`}>
       <div className="header-inner">
         
-        <div className="theme-toggle" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginRight: '20px' }}>
+        <div className="theme-toggle" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginRight: '20px' , verticalAlign: 'bottom'}}>
           <LightModeIcon color={isDarkMode ? "disabled" : "primary"} />
           <Switch
             checked={isDarkMode}
