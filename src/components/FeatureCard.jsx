@@ -11,7 +11,6 @@ const FeatureCard = ({ title, description, imageUrl }) => {
     );
     }   
 
-// Validación de las props
 FeatureCard.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
@@ -19,5 +18,5 @@ FeatureCard.propTypes = {
 };
 
 export default FeatureCard;
-// Este componente es una tarjeta que muestra una característica o funcionalidad de la aplicación.
+
 

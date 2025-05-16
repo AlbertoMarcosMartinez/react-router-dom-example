@@ -1,12 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import AuthContext from '../contexts/AuthContext';
-import { ThemeContext } from '../contexts/ThemeContext';
+
 import '../css/Login.css'; 
 
 const Login = () => {
   const { login } = useContext(AuthContext);
-  const { isDarkMode } = useContext(ThemeContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); 
@@ -27,7 +26,7 @@ const Login = () => {
   };
 
   return (
-    <div className={`login-container ${isDarkMode ? 'dark' : 'light'}`}>
+    <div className={`login-container`}>
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <div>
