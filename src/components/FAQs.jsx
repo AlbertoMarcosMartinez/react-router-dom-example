@@ -1,116 +1,114 @@
-import React, { useState } from 'react';
-import '../css/faq.css'; 
+import React from 'react';
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Typography,
+  Container,
+  Box,
+  Paper,
+  Divider
+} from '@mui/material';
+import {
+  ExpandMore as ExpandMoreIcon,
+  Pets as PetsIcon,
+  QuestionAnswer as QuestionIcon
+} from '@mui/icons-material';
 
-const faqs = [
-  {
-    question: "¿Es cierto que todos los dálmatas tienen 101 manchas?",
-    answer:
-      "No necesariamente, pero los dálmatas son conocidos por sus manchas únicas. ¡Eso sí, 101 dálmatas es mucho trabajo!",
-  },
-  {
-    question: "¿Cómo puedo entrenar a mi perro para que sea tan valiente como Lassie?",
-    answer:
-      "La clave está en el entrenamiento constante, el refuerzo positivo y, sobre todo, en construir una relación de confianza con tu perro.",
-  },
-  {
-    question: "¿Qué debo hacer si mi perro se comporta como Beethoven (el San Bernardo)?",
-    answer:
-      "Un San Bernardo puede ser travieso, pero con paciencia y entrenamiento, puedes canalizar su energía de manera positiva.",
-  },
-  {
-    question: "¿Puedo adoptar un perro tan adorable como Bolt?",
-    answer:
-      "¡Claro que sí! Hay muchos perros esperando un hogar amoroso. Bolt es un recordatorio de que todos los perros tienen un héroe dentro.",
-  },
-  {
-    question: "¿Es cierto que los perros pueden hablar como Dug de Up?",
-    answer:
-      "Aunque no pueden hablar como Dug, los perros tienen formas increíbles de comunicarse con nosotros a través de su lenguaje corporal y ladridos.",
-  },
-  {
-    question: "¿Qué raza es ideal si quiero un perro tan elegante como Lady (de La dama y el vagabundo)?",
-    answer:
-      "Un Cocker Spaniel, como Lady, es una excelente opción. Son elegantes, cariñosos y muy leales.",
-  },
-  {
-    question: "¿Cómo puedo evitar que mi perro se comporte como el travieso Max de El Grinch?",
-    answer:
-      "El entrenamiento temprano y el ejercicio regular pueden ayudar a evitar travesuras. ¡Aunque Max siempre tuvo un gran corazón!",
-  },
-  {
-    question: "¿Es posible que mi perro sea tan leal como Hachiko?",
-    answer:
-      "Los perros son naturalmente leales. Si les das amor y cuidado, te devolverán esa lealtad incondicional.",
-  },
-  {
-    question: "¿Qué debo hacer si mi perro se comporta como Marley de Marley y yo?",
-    answer:
-      "Marley nos enseñó que incluso los perros más traviesos pueden ser los más amorosos. La paciencia y el entrenamiento son clave.",
-  },
-  {
-    question: "¿Puedo tener un perro tan valiente como Balto?",
-    answer:
-      "Balto es un ejemplo de coraje y determinación. Aunque no todos los perros son héroes de trineo, todos tienen su propia valentía.",
-  },
-  {
-    question: "¿Qué debo hacer si mi perro intenta escapar como Chance de Volviendo a casa?",
-    answer:
-      "Asegúrate de que tu perro tenga suficiente ejercicio y entretenimiento para evitar que intente escapar por aburrimiento.",
-  },
-  {
-    question: "¿Es cierto que los perros pueden ser tan inteligentes como Gromit?",
-    answer:
-      "Algunos perros son increíblemente inteligentes y pueden aprender muchos trucos y comandos. ¡El entrenamiento es la clave!",
-  },
-  {
-    question: "¿Cómo puedo cuidar a un perro tan grande como Clifford?",
-    answer:
-      "Aunque Clifford es ficticio, los perros grandes necesitan mucho espacio, ejercicio y una dieta adecuada para mantenerse saludables.",
-  },
-  {
-    question: "¿Qué debo hacer si mi perro se comporta como Scooby-Doo y tiene miedo de todo?",
-    answer:
-      "La socialización temprana y el refuerzo positivo pueden ayudar a tu perro a superar sus miedos. ¡Y tal vez un par de Scooby-Galletas también ayuden!",
-  },
-  {
-    question: "¿Es posible que mi perro sea tan protector como Shadow de Volviendo a casa?",
-    answer:
-      "Los perros protectores como Shadow son el resultado de una relación fuerte y amorosa con sus dueños. ¡Dales amor y te protegerán siempre!",
-  },
-];
-
-function FAQ() {
-  return (
-    <div className="faq-container">
-      <h2 className="faq-title">Preguntas frecuentes</h2>
-      <dl className="faq-list">
-        {faqs.map((faq, index) => (
-          <Accordion key={index} faq={faq} />
-        ))}
-      </dl>
-    </div>
-  );
-}
-
-function Accordion({ faq }) {
-  const [isOpen, setOpen] = useState(false);
+const FAQs = () => {
+  const faqs = [
+    {
+      question: '¿Cómo puedo adoptar un perro?',
+      answer: 'Para adoptar un perro, primero debes registrarte en nuestra plataforma, verificar tu identidad y completar un formulario de adopción. Después, podrás contactar con los refugios o propietarios directamente.'
+    },
+    {
+      question: '¿Qué documentación necesito para adoptar?',
+      answer: 'Necesitarás tu documento de identidad, comprobante de domicilio, referencias personales y, en algunos casos, una visita domiciliaria para asegurar el bienestar del animal.'
+    },
+    {
+      question: '¿Cuál es el proceso de adopción?',
+      answer: 'El proceso incluye: 1) Registro en la plataforma, 2) Selección del perro, 3) Contacto con el refugio, 4) Entrevista inicial, 5) Visita al perro, 6) Verificación de hogar, 7) Firma del contrato de adopción.'
+    },
+    {
+      question: '¿Hay algún costo asociado?',
+      answer: 'La mayoría de los refugios tienen una cuota de adopción que cubre vacunas, desparasitación y esterilización. Los costos varían según el refugio y la edad del perro.'
+    },
+    {
+      question: '¿Puedo devolver al perro si no nos adaptamos?',
+      answer: 'Aunque no recomendamos la devolución, entendemos que pueden surgir situaciones excepcionales. Los refugios tienen un período de adaptación durante el cual puedes devolver al perro si surge algún problema serio.'
+    },
+    {
+      question: '¿Cómo puedo saber qué raza de perro se adapta mejor a mi estilo de vida?',
+      answer: 'Considera factores como el espacio disponible en tu hogar, tiempo para ejercicio, experiencia con perros y presupuesto. También puedes usar nuestra herramienta de "Match Perfect" que te ayuda a encontrar razas compatibles según tus respuestas a un cuestionario personalizado.'
+    },
+    {
+      question: '¿Qué debo hacer si mi perro muestra signos de agresividad?',
+      answer: 'Lo primero es consultar con un veterinario para descartar problemas médicos. Luego, considera trabajar con un adiestrador profesional certificado. La agresividad puede tener múltiples causas como miedo, ansiedad o experiencias pasadas, y requiere un manejo profesional.'
+    },
+    {
+      question: '¿Con qué frecuencia debo vacunar a mi perro?',
+      answer: 'El calendario de vacunación varía según la edad y el entorno del perro. Los cachorros necesitan una serie de vacunas entre las 6 y 16 semanas. Los adultos requieren refuerzos anuales o trienales, según la vacuna. Consulta con tu veterinario para un calendario personalizado.'
+    },
+    {
+      question: '¿Cómo puedo entrenar a mi perro para que haga sus necesidades fuera de casa?',
+      answer: 'El entrenamiento requiere paciencia y consistencia. Establece horarios regulares, premia el comportamiento correcto, mantén una rutina de salidas y usa comandos específicos. Los cachorros suelen aprender en 4-6 semanas, pero cada perro tiene su ritmo.'
+    },
+    {
+      question: '¿Qué beneficios tiene contratar un seguro para mi perro?',
+      answer: 'Un seguro para mascotas puede cubrir gastos veterinarios inesperados, tratamientos por accidentes, enfermedades crónicas y, en algunos casos, medicina preventiva. También puede incluir cobertura por responsabilidad civil en caso de que tu perro cause daños a terceros.'
+    }
+  ];
 
   return (
-    <div className={`faq-item ${isOpen ? 'open' : ''}`}>
-      <dt>
-        <button
-          onClick={() => setOpen(!isOpen)}
-          className="faq-question"
-        >
-          <span>{faq.question}</span>
-          <span className="faq-icon">{isOpen ? '-' : '+'}</span>
-        </button>
-      </dt>
-      <dd className="faq-answer">
-        <p>{faq.answer}</p>
-      </dd>
-    </div>
-  );
-}
+    <Container maxWidth="md">
+      <Box sx={{ my: 4 }}>
+        <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', mb: 4 }}>
+            <PetsIcon sx={{ fontSize: 40, color: 'primary.main', mr: 2 }} />
+            <Typography variant="h4" component="h1" color="primary.main">
+              Preguntas Frecuentes
+            </Typography>
+          </Box>
 
-export default FAQ;
+          <Divider sx={{ mb: 4 }} />
+
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            {faqs.map((faq, index) => (
+              <Accordion 
+                key={index}
+                sx={{
+                  '&:before': { display: 'none' },
+                  boxShadow: 1,
+                  '&:hover': {
+                    boxShadow: 2,
+                  }
+                }}
+              >
+                <AccordionSummary 
+                  expandIcon={<ExpandMoreIcon />}
+                  sx={{
+                    '&:hover': {
+                      backgroundColor: 'rgba(0, 0, 0, 0.04)',
+                    }
+                  }}
+                >
+                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <QuestionIcon sx={{ mr: 2, color: 'primary.main' }} />
+                    <Typography variant="h6">{faq.question}</Typography>
+                  </Box>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography sx={{ pl: 5 }}>
+                    {faq.answer}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+            ))}
+          </Box>
+        </Paper>
+      </Box>
+    </Container>
+  );
+};
+
+export default FAQs;
