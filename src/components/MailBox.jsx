@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import data from "./MailList.json";
 import Paginador from "./common/Paginador";
+import ResponderModal from "./ResponderModal";
 import "../css/MailBox.css"; 
 import { Button } from "@mui/material";
 
@@ -9,7 +10,9 @@ function MailBox() {
     const [preguntas, setPreguntas] = useState([]);
     const [paginaActual, setPaginaActual] = useState(1);
     const preguntasPorPagina = 10; 
-  
+    const [modalOpen, setModalOpen] = useState(false);
+    const [preguntaSeleccionada, setPreguntaSeleccionada] = useState(null);
+
     useEffect(() => {
       setPreguntas(data);
     }, []);
@@ -27,10 +30,34 @@ function MailBox() {
       }
     };
 
+    const handleResponder = (pregunta) => {
+      setPreguntaSeleccionada(pregunta);
+      setModalOpen(true);
+    };
+
+    const handleEnviarRespuesta = (nuevaRespuesta) => {
+      const preguntasActualizadas = preguntas.map(pregunta => {
+        if (pregunta.id === preguntaSeleccionada.id) {
+          return {
+            ...pregunta,
+            respuestas: [...pregunta.respuestas, nuevaRespuesta]
+          };
+        }
+        return pregunta;
+      });
+      
+      setPreguntas(preguntasActualizadas);
+      setModalOpen(false);
+      setPreguntaSeleccionada(null);
+    };
+
     return (
       <div className="mailbox-container">
         <h2 className="mailbox-title">Hilo perruno</h2>
-        <Button variant="contained" color="primary" size="small" className="mailbox-button">Crear Pregunta</Button>
+        <Button variant="contained" color="primary" size="small" className="mailbox-button">
+          Crear Pregunta
+        </Button>
+        
         {preguntasPagina.map((item) => (
           <div key={item.id} className="mail-card">
             <div className="mail-category">{item.categoria}</div>
@@ -42,8 +69,14 @@ function MailBox() {
                     </ul>
                 <div className="mail-date">{item.fecha}</div>
                 <div className="mail-actions" id="mail-actions" style={{ display: "flex", justifyContent: "space-between", alignItems: "end" }}>  
-                    <Button variant="contained" color="primary" size="small">Responder</Button>
-                    {/* <Button variant="outlined" color="secondary" size="small">Eliminar</Button> */}
+                    <Button 
+                        variant="contained" 
+                        color="primary" 
+                        size="small"
+                        onClick={() => handleResponder(item)}
+                    >
+                        Responder
+                    </Button>
                 </div> 
         </div>
         ))}
@@ -52,6 +85,13 @@ function MailBox() {
           paginaActual={paginaActual}
           totalPaginas={totalPaginas}
           onPageChange={cambiarPagina}
+        />
+
+        <ResponderModal
+          open={modalOpen}
+          onClose={() => setModalOpen(false)}
+          pregunta={preguntaSeleccionada}
+          onResponder={handleEnviarRespuesta}
         />
       </div>
     );
