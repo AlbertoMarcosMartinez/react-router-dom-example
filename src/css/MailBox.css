@@ -121,4 +121,37 @@
   .pagina-btn:hover:not(:disabled) {
     background-color: #357bd8;
   }
+
+  .no-answers {
+    color: #666;
+    font-style: italic;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    margin: 10px 0;
+  }
   
+  .original-content {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  
+  .original-content h4 {
+    margin: 0 0 10px 0;
+    color: #666;
+  }
+
+  .pregunta-original {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  
+  .pregunta-original h4 {
+    margin: 0 0 10px 0;
+    color: #666;
+  }
+

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import data from "./MailList.json";
 import Paginador from "./common/Paginador";
-import ResponderModal from "./ResponderModal";
+import DialogForm from "./DialogForm";
 import "../css/MailBox.css"; 
 import { Button } from "@mui/material";
 
@@ -12,6 +12,7 @@ function MailBox() {
     const preguntasPorPagina = 10; 
     const [modalOpen, setModalOpen] = useState(false);
     const [preguntaSeleccionada, setPreguntaSeleccionada] = useState(null);
+    const [isNewQuestion, setIsNewQuestion] = useState(false);
 
     useEffect(() => {
       setPreguntas(data);
@@ -51,34 +52,56 @@ function MailBox() {
       setPreguntaSeleccionada(null);
     };
 
+    const handleNuevaPregunta = (contenido) => {
+      const nuevaPregunta = {
+        id: preguntas.length + 1,
+        categoria: "General",
+        pregunta: contenido,
+        respuestas: [],
+        fecha: new Date().toLocaleDateString()
+      };
+      
+      setPreguntas([nuevaPregunta, ...preguntas]);
+    };
+
     return (
       <div className="mailbox-container">
         <h2 className="mailbox-title">Hilo perruno</h2>
-        <Button variant="contained" color="primary" size="small" className="mailbox-button">
+        <Button 
+          variant="contained" 
+          color="primary" 
+          size="small" 
+          className="mailbox-button"
+          onClick={() => setIsNewQuestion(true)}
+        >
           Crear Pregunta
         </Button>
         
         {preguntasPagina.map((item) => (
           <div key={item.id} className="mail-card">
             <div className="mail-category">{item.categoria}</div>
-                <div className="mail-question">{item.pregunta}</div>
-                    <ul className="mail-answers">
-                    {item.respuestas.map((respuesta, index) => (
-                        <li key={index}>{respuesta}</li>
-                    ))}
-                    </ul>
-                <div className="mail-date">{item.fecha}</div>
-                <div className="mail-actions" id="mail-actions" style={{ display: "flex", justifyContent: "space-between", alignItems: "end" }}>  
-                    <Button 
-                        variant="contained" 
-                        color="primary" 
-                        size="small"
-                        onClick={() => handleResponder(item)}
-                    >
-                        Responder
-                    </Button>
-                </div> 
-        </div>
+            <div className="mail-question">{item.pregunta}</div>
+            {item.respuestas.length > 0 ? (
+              <ul className="mail-answers">
+                {item.respuestas.map((respuesta, index) => (
+                  <li key={index}>{respuesta}</li>
+                ))}
+              </ul>
+            ) : (
+              <p className="no-answers">En este momento aún no hay respuestas para este hilo.</p>
+            )}
+            <div className="mail-date">{item.fecha}</div>
+            <div className="mail-actions">
+              <Button 
+                variant="contained" 
+                color="primary" 
+                size="small"
+                onClick={() => handleResponder(item)}
+              >
+                Responder
+              </Button>
+            </div>
+          </div>
         ))}
   
         <Paginador
@@ -87,11 +110,23 @@ function MailBox() {
           onPageChange={cambiarPagina}
         />
 
-        <ResponderModal
+        <DialogForm
           open={modalOpen}
           onClose={() => setModalOpen(false)}
-          pregunta={preguntaSeleccionada}
-          onResponder={handleEnviarRespuesta}
+          title="Responder Pregunta"
+          originalContent={preguntaSeleccionada?.pregunta}
+          onSubmit={handleEnviarRespuesta}
+          submitButtonText="Enviar Respuesta"
+          placeholder="Escribe tu respuesta..."
+        />
+
+        <DialogForm
+          open={isNewQuestion}
+          onClose={() => setIsNewQuestion(false)}
+          title="Nueva Pregunta"
+          onSubmit={handleNuevaPregunta}
+          submitButtonText="Crear Pregunta"
+          placeholder="Escribe tu pregunta..."
         />
       </div>
     );
