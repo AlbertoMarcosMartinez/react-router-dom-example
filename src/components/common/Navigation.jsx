@@ -7,18 +7,33 @@ const Navigation = () => {
   const { isAuthenticated } = useContext(AuthContext);
   const location = useLocation();
 
+  // Función para verificar si una ruta está activa
+  const isActive = (path) => {
+    if (path === '/adopciones') {
+      // Considera activo tanto /adopciones como /adopcion/:id
+      return location.pathname.startsWith('/adopcion');
+    }
+    return location.pathname === path;
+  };
+
   if (!isAuthenticated) return null;
 
   return (
     <nav className="main-nav">
       <ul className="nav-menu">
         <li>
-          <Link to="/dogs" className={location.pathname === '/dogs' ? 'active' : ''}>
+          <Link 
+            to="/dogs" 
+            className={isActive('/dogs') ? 'active' : ''}
+          >
             Explore Breeds
           </Link>
         </li>
         <li>
-          <Link to="/adopciones" className={location.pathname === '/adopciones' ? 'active' : ''}>
+          <Link 
+            to="/adopciones" 
+            className={isActive('/adopciones') ? 'active' : ''}
+          >
             Adoptions
           </Link>
         </li>

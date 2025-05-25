@@ -18,6 +18,8 @@ import Modal from './components/Modal'
 import Navigation from './components/common/Navigation';
 import PublicLayout from './layouts/PublicLayout';
 import PrivateLayout from './layouts/PrivateLayout';
+import AdoptionList from './components/AdoptionList'
+import DogAdoptionDetail from './components/DogAdoptionDetail'
 
 function App() {            
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -53,7 +55,9 @@ function App() {
                                             <Route path="gallery" element={<EnConstruccion name="Gallery" desc="galeria de imágenes"/>} />
                                             <Route path="CaresFYPet" element={<EnConstruccion name="CaresFYPet" desc="cuidado de la mascota"/>} />
                                         </Route>
-                                        <Route path="/adopciones" element={<ProtectedRoute><EnConstruccion name="Adopciones" desc="adopciones"/> </ProtectedRoute>} />
+                                        {/* <Route path="/adopciones" element={<ProtectedRoute><EnConstruccion name="Adopciones" desc="adopciones"/> </ProtectedRoute>} /> */}
+                                        <Route path="/adopciones" element={<ProtectedRoute><AdoptionList /></ProtectedRoute>} />
+                                        <Route path="/adopcion/:id" element={<DogAdoptionDetail />} />
                                         <Route path="/FAQs" element={<ProtectedRoute><FAQs /></ProtectedRoute>} />
                                         <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
                                         <Route path="/mailbox" element={<ProtectedRoute><MailBox /></ProtectedRoute>} />
