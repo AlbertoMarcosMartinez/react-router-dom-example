@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { 
   Container, 
@@ -12,11 +12,13 @@ import {
 } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { adoptableDogs } from '../data/adoptableDogs';
+import AdoptionForm from '../components/AdoptionForm';
 
 const DogAdoptionDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dog = adoptableDogs.find(d => d.id === parseInt(id));
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   if (!dog) {
     return (
@@ -82,6 +84,7 @@ const DogAdoptionDetail = () => {
                 color="primary"
                 size="large"
                 fullWidth
+                onClick={() => setIsFormOpen(true)}
               >
                 Solicitar Adopción
               </Button>
@@ -96,6 +99,12 @@ const DogAdoptionDetail = () => {
           </Grid>
         </Grid>
       </Paper>
+
+      <AdoptionForm 
+        open={isFormOpen}
+        onClose={() => setIsFormOpen(false)}
+        dog={dog}
+      />
     </Container>
   );
 };

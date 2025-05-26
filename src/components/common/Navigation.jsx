@@ -1,22 +1,25 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import AuthContext from '../../contexts/AuthContext';
-import '../../css/Navigation.css';
+import '../../css/Navigation.css'; // Asegúrate de que la ruta sea correcta
 
 const Navigation = () => {
-  const { isAuthenticated } = useContext(AuthContext);
   const location = useLocation();
 
   // Función para verificar si una ruta está activa
   const isActive = (path) => {
-    if (path === '/adopciones') {
-      // Considera activo tanto /adopciones como /adopcion/:id
-      return location.pathname.startsWith('/adopcion');
-    }
-    return location.pathname === path;
-  };
+    // Para rutas base
+    if (location.pathname === path) return true;
 
-  if (!isAuthenticated) return null;
+    // Para rutas anidadas
+    switch (path) {
+      case '/dogs':
+        return location.pathname.startsWith('/dogs/');
+      case '/adopciones':
+        return location.pathname.startsWith('/adopcion/');
+      default:
+        return false;
+    }
+  };
 
   return (
     <nav className="main-nav">
@@ -38,17 +41,26 @@ const Navigation = () => {
           </Link>
         </li>
         <li>
-          <Link to="/FAQs" className={location.pathname === '/FAQs' ? 'active' : ''}>
+          <Link 
+            to="/FAQs" 
+            className={isActive('/FAQs') ? 'active' : ''}
+          >
             FAQs
           </Link>
         </li>
         <li>
-          <Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>
+          <Link 
+            to="/contact" 
+            className={isActive('/contact') ? 'active' : ''}
+          >
             Contact
           </Link>
         </li>
         <li>
-          <Link to="/mailbox" className={location.pathname === '/mailbox' ? 'active' : ''}>
+          <Link 
+            to="/mailbox" 
+            className={isActive('/mailbox') ? 'active' : ''}
+          >
             Mailbox
           </Link>
         </li>
