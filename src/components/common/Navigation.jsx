@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useMediaQuery } from '@mui/material';
-import './Navigation.css';
+import '../../css/Navigation.css';
 
 const Navigation = () => {
   const location = useLocation();
