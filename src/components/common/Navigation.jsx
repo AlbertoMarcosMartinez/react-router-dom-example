@@ -1,16 +1,27 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import '../../css/Navigation.css'; // Asegúrate de que la ruta sea correcta
+import { useMediaQuery } from '@mui/material';
+import './Navigation.css';
 
 const Navigation = () => {
   const location = useLocation();
+  const isMobile = useMediaQuery('(max-width:686px)');
 
-  // Función para verificar si una ruta está activa
+  const getMenuText = (path) => {
+    switch (path) {
+      case '/dogs':
+        return isMobile ? 'Breeds' : 'Explore Breeds';
+      case '/adopciones':
+        return isMobile ? 'Adopt' : 'Adoptions';
+      case '/mailbox':
+        return isMobile ? 'Mail' : 'Mailbox';
+      default:
+        return '';
+    }
+  };
+
   const isActive = (path) => {
-    // Para rutas base
     if (location.pathname === path) return true;
-
-    // Para rutas anidadas
     switch (path) {
       case '/dogs':
         return location.pathname.startsWith('/dogs/');
@@ -21,49 +32,27 @@ const Navigation = () => {
     }
   };
 
+  const menuItems = [
+    { path: '/dogs', text: getMenuText('/dogs') },
+    { path: '/adopciones', text: getMenuText('/adopciones') },
+    { path: '/FAQs', text: 'FAQs' },
+    { path: '/contact', text: 'Contact' },
+    { path: '/mailbox', text: getMenuText('/mailbox') }
+  ];
+
   return (
     <nav className="main-nav">
       <ul className="nav-menu">
-        <li>
-          <Link 
-            to="/dogs" 
-            className={isActive('/dogs') ? 'active' : ''}
-          >
-            Explore Breeds
-          </Link>
-        </li>
-        <li>
-          <Link 
-            to="/adopciones" 
-            className={isActive('/adopciones') ? 'active' : ''}
-          >
-            Adoptions
-          </Link>
-        </li>
-        <li>
-          <Link 
-            to="/FAQs" 
-            className={isActive('/FAQs') ? 'active' : ''}
-          >
-            FAQs
-          </Link>
-        </li>
-        <li>
-          <Link 
-            to="/contact" 
-            className={isActive('/contact') ? 'active' : ''}
-          >
-            Contact
-          </Link>
-        </li>
-        <li>
-          <Link 
-            to="/mailbox" 
-            className={isActive('/mailbox') ? 'active' : ''}
-          >
-            Mailbox
-          </Link>
-        </li>
+        {menuItems.map((item) => (
+          <li key={item.path}>
+            <Link 
+              to={item.path} 
+              className={isActive(item.path) ? 'active' : ''}
+            >
+              {item.text}
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );
