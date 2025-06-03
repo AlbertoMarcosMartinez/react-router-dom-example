@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { AuthProvider }   from './contexts/AuthContext'
 import { ThemeProvider } from './contexts/ThemeContext';
+import { DogBreedsProvider } from './contexts/DogBreedsContext';
 import DogList from './components/DogList'
 import DogDetail from './components/DogDetail'
 import DogCharacteristics from './components/DogCharacteristics'
@@ -30,44 +31,46 @@ function App() {
         <div className="App">                        
             <ThemeProvider>
                 <AuthProvider>
-                    <Routes>
-                        <Route
-                            path="/login"
-                            element={
-                                <PublicLayout>
-                                    <Login />
-                                </PublicLayout>
-                            }
-                        />
-                        <Route
-                            path="*"
-                            element={
-                                <PrivateLayout
-                                    openModal={() => setIsModalOpen(true)}
-                                    isDarkMode={isDarkMode}
-                                    toggleTheme={toggleTheme}
-                                >
-                                    <Routes>
-                                        <Route path="/" element={<MainPage />} />
-                                        <Route path="/dogs" element={<ProtectedRoute><DogList /></ProtectedRoute>} />
-                                        <Route path="/dogs/:name" element={<ProtectedRoute><DogDetail /></ProtectedRoute>}>
-                                            <Route path="moredetails" element={<DogCharacteristics />} />
-                                            <Route path="gallery" element={<EnConstruccion name="Gallery" desc="galeria de imágenes"/>} />
-                                            <Route path="CaresFYPet" element={<EnConstruccion name="CaresFYPet" desc="cuidado de la mascota"/>} />
-                                        </Route>
-                                        {/* <Route path="/adopciones" element={<ProtectedRoute><EnConstruccion name="Adopciones" desc="adopciones"/> </ProtectedRoute>} /> */}
-                                        <Route path="/adopciones" element={<ProtectedRoute><AdoptionList /></ProtectedRoute>} />
-                                        <Route path="/adopcion/:id" element={<DogAdoptionDetail />} />
-                                        <Route path="/FAQs" element={<ProtectedRoute><FAQs /></ProtectedRoute>} />
-                                        <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
-                                        <Route path="/mailbox" element={<ProtectedRoute><MailBox /></ProtectedRoute>} />
-                                        <Route path="*" element={<h1>404 Not Found</h1>} />
-                                    </Routes>
-                                    {isModalOpen && <Modal closeModal={setIsModalOpen} />}
-                                </PrivateLayout>
-                            }
-                        />
-                    </Routes>
+                    <DogBreedsProvider>
+                        <Routes>
+                            <Route
+                                path="/login"
+                                element={
+                                    <PublicLayout>
+                                        <Login />
+                                    </PublicLayout>
+                                }
+                            />
+                            <Route
+                                path="*"
+                                element={
+                                    <PrivateLayout
+                                        openModal={() => setIsModalOpen(true)}
+                                        isDarkMode={isDarkMode}
+                                        toggleTheme={toggleTheme}
+                                    >
+                                        <Routes>
+                                            <Route path="/" element={<MainPage />} />
+                                            <Route path="/dogs" element={<ProtectedRoute><DogList /></ProtectedRoute>} />
+                                            <Route path="/dogs/:name" element={<ProtectedRoute><DogDetail /></ProtectedRoute>}>
+                                                <Route path="moredetails" element={<DogCharacteristics />} />
+                                                <Route path="gallery" element={<EnConstruccion name="Gallery" desc="galeria de imágenes"/>} />
+                                                <Route path="CaresFYPet" element={<EnConstruccion name="CaresFYPet" desc="cuidado de la mascota"/>} />
+                                            </Route>
+                                            {/* <Route path="/adopciones" element={<ProtectedRoute><EnConstruccion name="Adopciones" desc="adopciones"/> </ProtectedRoute>} /> */}
+                                            <Route path="/adopciones" element={<ProtectedRoute><AdoptionList /></ProtectedRoute>} />
+                                            <Route path="/adopcion/:id" element={<DogAdoptionDetail />} />
+                                            <Route path="/FAQs" element={<ProtectedRoute><FAQs /></ProtectedRoute>} />
+                                            <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
+                                            <Route path="/mailbox" element={<ProtectedRoute><MailBox /></ProtectedRoute>} />
+                                            <Route path="*" element={<h1>404 Not Found</h1>} />
+                                        </Routes>
+                                        {isModalOpen && <Modal closeModal={setIsModalOpen} />}
+                                    </PrivateLayout>
+                                }
+                            />
+                        </Routes>
+                    </DogBreedsProvider>
                 </AuthProvider>
             </ThemeProvider>
         </div>  

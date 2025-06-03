@@ -1,55 +1,94 @@
 .dog-finder {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
-    margin-bottom: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.dog-finder-form {
+.dog-finder h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.search-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.input-group {
     display: flex;
     gap: 10px;
-    margin-top: 15px;
+    width: 100%;
 }
 
 .search-input {
     flex: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    outline: none;
+    transition: all 0.3s ease;
 }
 
-.PrimaryRoundedButton  {
-    background-color: white;
-  color: black;
-  border: 1px solid black;
-  border-radius: 9999px;        /* rounded-full */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 1.75rem;     /* py-3 px-7 */
-  text-align: center;
-  font-size: 1rem;              /* text-base */
-  font-weight: 500;             /* font-medium */
-  transition: all 0.3s ease;    /* para suavizar el hover */
+.search-input:focus {
+    border-color: #1976d2;
+    box-shadow: 0 4px 15px rgba(25, 118, 210, 0.2);
 }
-.PrimaryRoundedButton:hover {
-    background-color: #e5e7eb;    /* gris claro (Tailwind gray-200) */
-  border-color: #e5e7eb;
-  color: black;
-  }
-  
-  .PrimaryRoundedButton:disabled {
-    background-color: #e5e7eb;    /* gris claro */
-    border-color: #e5e7eb;
-    color: #6b7280;               /* gris más oscuro para texto deshabilitado */
-    cursor: not-allowed;
-    opacity: 0.6;
-  }
-  
-  .PrimaryRoundedButton:active {
-    background-color: #1B44C8;
-    border-color: #1B44C8;
-  }
+
+.search-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #1976d2;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.search-button:hover {
+    background-color: #1565c0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
+}
+
+.search-message {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    animation: slideIn 0.3s ease;
+}
+
+.message.error {
+    background-color: rgba(211, 47, 47, 0.1);
+    color: #d32f2f;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .input-group {
+        flex-direction: column;
+    }
+
+    .search-button {
+        width: 100%;
+    }
+}
 
