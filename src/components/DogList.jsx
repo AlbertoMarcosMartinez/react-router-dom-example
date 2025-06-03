@@ -1,3 +1,18 @@
+/**
+ * Componente de lista de perros
+ * 
+ * Características:
+ * - Implementa patrón de presentación
+ * - Usa Material-UI para UI consistente
+ * - Maneja estados de loading/error
+ * - Implementa búsqueda en tiempo real
+ * 
+ * Alternativas consideradas:
+ * 1. Virtualización con react-window para listas grandes
+ * 2. Infinite scroll con react-infinite-scroll-component
+ * 3. Paginación del lado del servidor
+ */
+
 import React, { useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 

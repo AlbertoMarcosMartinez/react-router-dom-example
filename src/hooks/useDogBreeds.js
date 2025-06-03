@@ -1,14 +1,32 @@
+/**
+ * Custom Hook para manejar la lógica de datos de razas de perros
+ * 
+ * Características:
+ * - Separación de concerns (SRP)
+ * - Manejo de estado local
+ * - Gestión de efectos secundarios
+ * - Cache de datos en memoria
+ * 
+ * Alternativas consideradas:
+ * 1. React Query: Mejor para caching y revalidación
+ * 2. SWR: Similar a React Query, con enfoque en stale-while-revalidate
+ * 3. Apollo Client: Para APIs GraphQL
+ */
+
 import { useState, useEffect } from 'react';
 
 const useDogBreeds = () => {
   const [dogs, setDogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  
+  // API key from environment variables
   const apiKey = import.meta.env.VITE_DOGAPISUSCR;
 
   useEffect(() => {
     const fetchDogs = async () => {
-      if (dogs.length > 0) return; // Si ya tenemos perros, no hacemos la llamada
+      // Cache check
+      if (dogs.length > 0) return;
       
       try {
         const response = await fetch('https://api.thedogapi.com/v1/breeds', {
@@ -28,10 +46,11 @@ const useDogBreeds = () => {
         const shuffledBreeds = data.sort(() => 0.5 - Math.random());
         const randomBreeds = shuffledBreeds.slice(0, 15);
         
-        // Asegurarse de que cada perro tenga su imagen
+        // Data transformation layer
         const breedsWithImages = randomBreeds.map(breed => ({
           id: breed.id,
           name: breed.name,
+          // Fallback para imágenes no disponibles
           image: breed.image?.url || 'https://via.placeholder.com/400x200?text=No+Image',
           bred_for: breed.bred_for,
           breed_group: breed.breed_group,
@@ -49,7 +68,7 @@ const useDogBreeds = () => {
     };
 
     fetchDogs();
-  }, [apiKey]);
+  }, [apiKey]); // Dependency array optimizado
 
   const searchBreeds = async (searchTerm) => {
     setLoading(true);

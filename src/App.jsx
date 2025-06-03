@@ -1,3 +1,18 @@
+/**
+ * Configuración principal de la aplicación
+ * 
+ * Características:
+ * - Routing con React Router 6
+ * - Múltiples providers anidados
+ * - Layouts compartidos
+ * - Rutas protegidas
+ * 
+ * Alternativas consideradas:
+ * 1. TanStack Router para type-safe routing
+ * 2. Next.js para SSR y file-based routing
+ * 3. Lazy loading de rutas para mejor performance
+ */
+
 import './App.css'
 import React, { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
