@@ -36,6 +36,7 @@ import PublicLayout from './layouts/PublicLayout';
 import PrivateLayout from './layouts/PrivateLayout';
 import AdoptionList from './components/AdoptionList'
 import DogAdoptionDetail from './components/DogAdoptionDetail'
+import DogGallery from './components/DogGallery';
 
 function App() {            
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -69,7 +70,8 @@ function App() {
                                             <Route path="/dogs" element={<ProtectedRoute><DogList /></ProtectedRoute>} />
                                             <Route path="/dogs/:name" element={<ProtectedRoute><DogDetail /></ProtectedRoute>}>
                                                 <Route path="moredetails" element={<DogCharacteristics />} />
-                                                <Route path="gallery" element={<EnConstruccion name="Gallery" desc="galeria de imágenes"/>} />
+                                                <Route path="gallery" element={<DogGallery />} />
+                                                {/* <Route path="gallery" element={<EnConstruccion name="Galería" desc="Galería de fotos"/>} /> */}
                                                 <Route path="CaresFYPet" element={<EnConstruccion name="CaresFYPet" desc="cuidado de la mascota"/>} />
                                             </Route>
                                             {/* <Route path="/adopciones" element={<ProtectedRoute><EnConstruccion name="Adopciones" desc="adopciones"/> </ProtectedRoute>} /> */}
