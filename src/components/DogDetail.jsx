@@ -1,11 +1,13 @@
 import React from 'react';
-import { useParams, NavLink, Outlet } from 'react-router-dom';
+import { useParams, NavLink, Outlet, useLocation } from 'react-router-dom';
 import useDogDetail from '../hooks/useDogDetail';
 import '../css/DogDetail.css';
 
 const DogDetail = () => {
   const { name } = useParams();
+  const { state } = useLocation();
   const { dog, loading, error } = useDogDetail(name);
+  const dimensions = state?.dimensions;
 
   const nestedLinks = [
     { 
@@ -30,13 +32,16 @@ const DogDetail = () => {
     <div className="dog-detail">      
       <div className="detail-card">
         <h2>{dog.name}</h2>        
-        {dog.reference_image_id && (
-          <img 
-            src={`https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
-            alt={dog.name}
-            className="dog-image"
-          />
-        )} 
+        <img
+          src={state?.image}
+          alt={dog.name}
+          style={{
+            width: '100%',
+            height: dimensions ? `${dimensions.height}px` : '400px',
+            objectFit: dimensions ? 'contain' : 'cover',
+            borderRadius: '8px'
+          }}
+        />
 
         <div className="main-characteristics-grid">
                 <div className="full-width">

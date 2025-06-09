@@ -18,28 +18,37 @@ import useDogBreeds from '../hooks/useDogBreeds';
 const DogBreedsContext = createContext();
 
 export const DogBreedsProvider = ({ children }) => {
-  // Control de carga inicial para evitar llamadas API innecesarias
   const [hasInitialLoad, setHasInitialLoad] = useState(false);
-  
-  // Custom hook que maneja la lógica de datos
-  const { dogs, loading, error, searchBreeds } = useDogBreeds();
+  const { fetchInitialDogs, dogs, loading, error, searchBreeds } = useDogBreeds();
 
-  // Función para forzar recarga de datos
-  const refreshDogs = () => {
-    setHasInitialLoad(false);
+  const refreshDogs = async () => {
+    try {
+      setHasInitialLoad(false);
+      await fetchInitialDogs(true);
+      setHasInitialLoad(true);
+    } catch (error) {
+      console.error('Error refreshing dogs:', error);
+    }
   };
 
-  // Objeto de contexto con memoización implícita
   const value = {
     dogs,
-    // Optimización para mostrar loading solo en carga inicial
     loading: loading && !hasInitialLoad,
     error,
     searchBreeds,
-    refreshDogs,
-    hasInitialLoad,
-    setHasInitialLoad
+    refreshDogs
   };
+
+  // Error boundary fallback
+  if (error && !loading) {
+    return (
+      <div style={{ padding: '20px', textAlign: 'center' }}>
+        <h3>Something went wrong</h3>
+        <p>{error}</p>
+        <button onClick={() => refreshDogs()}>Try again</button>
+      </div>
+    );
+  }
 
   return (
     <DogBreedsContext.Provider value={value}>
@@ -48,15 +57,9 @@ export const DogBreedsProvider = ({ children }) => {
   );
 };
 
-/**
- * Custom Hook para usar el contexto
- * Incluye validación para asegurar uso dentro del Provider
- * 
- * Alternativa: Podríamos usar TypeScript para mejor type-safety
- */
 export const useDogBreedsContext = () => {
   const context = useContext(DogBreedsContext);
-  if (context === undefined) {
+  if (!context) {
     throw new Error('useDogBreedsContext must be used within a DogBreedsProvider');
   }
   return context;

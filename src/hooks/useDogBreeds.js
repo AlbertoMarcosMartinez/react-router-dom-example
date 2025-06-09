@@ -13,71 +13,77 @@
  * 3. Apollo Client: Para APIs GraphQL
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+
+const getImageDimensions = async (imageUrl) => {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      resolve({
+        width: img.width,
+        height: img.height,
+        aspectRatio: img.width / img.height
+      });
+    };
+    img.src = imageUrl;
+  });
+};
 
 const useDogBreeds = () => {
   const [dogs, setDogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   
-  // API key from environment variables
   const apiKey = import.meta.env.VITE_DOGAPISUSCR;
 
-  useEffect(() => {
-    const fetchDogs = async () => {
-      // Cache check
-      if (dogs.length > 0) return;
-      
-      try {
-        const response = await fetch('https://api.thedogapi.com/v1/breeds', {
-          headers: {
-            'Content-Type': 'application/json',
-            'x-api-key': apiKey
-          }
-        });
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+  const fetchInitialDogs = useCallback(async (forceRefresh = false) => {
+    if (dogs.length > 0 && !forceRefresh) return;
+    
+    setLoading(true);
+    setError(null); // Reset error state
+    
+    try {
+      const response = await fetch('https://api.thedogapi.com/v1/breeds', {
+        headers: {
+          'x-api-key': apiKey
         }
+      });
 
-        const data = await response.json();
-        
-        // Barajar el array y tomar 10 elementos aleatorios
-        const shuffledBreeds = data.sort(() => 0.5 - Math.random());
-        const randomBreeds = shuffledBreeds.slice(0, 15);
-        
-        // Data transformation layer
-        const breedsWithImages = randomBreeds.map(breed => ({
-          id: breed.id,
-          name: breed.name,
-          // Fallback para imágenes no disponibles
-          image: breed.image?.url || 'https://via.placeholder.com/400x200?text=No+Image',
-          bred_for: breed.bred_for,
-          breed_group: breed.breed_group,
-          life_span: breed.life_span,
-          temperament: breed.temperament
-        }));
-
-        setDogs(breedsWithImages);
-      } catch (err) {
-        setError(err.message);
-        console.error('Error fetching dogs:', err);
-      } finally {
-        setLoading(false);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-    };
 
-    fetchDogs();
-  }, [apiKey]); // Dependency array optimizado
+      const data = await response.json();
+      
+      // Barajar el array y tomar 10 elementos aleatorios
+      const shuffledBreeds = [...data].sort(() => 0.5 - Math.random());
+      const randomBreeds = shuffledBreeds.slice(0, 15).map(breed => ({
+        ...breed,
+        image: breed.image?.url || 'https://via.placeholder.com/400x200?text=No+Image'
+      }));
+      
+      setDogs(randomBreeds);
+    } catch (err) {
+      setError(err.message);
+      console.error('Error fetching dogs:', err);
+    } finally {
+      setLoading(false);
+    }
+  }, [apiKey]);
+
+  useEffect(() => {
+    fetchInitialDogs();
+  }, [fetchInitialDogs]);
 
   const searchBreeds = async (searchTerm) => {
     setLoading(true);
+    setError(null);
+    
     try {
       const response = await fetch(
         `https://api.thedogapi.com/v1/breeds/search?q=${encodeURIComponent(searchTerm)}`,
         {
           headers: {
-            'Content-Type': 'application/json',
             'x-api-key': apiKey
           }
         }
@@ -88,22 +94,11 @@ const useDogBreeds = () => {
       }
 
       const data = await response.json();
-      
-      // Mapear los resultados para asegurar que tengan imágenes
-      const breedsWithImages = data.map(breed => ({
-        id: breed.id,
-        name: breed.name,
-        image: breed.image?.url || 'https://via.placeholder.com/400x200?text=No+Image',
-        bred_for: breed.bred_for,
-        breed_group: breed.breed_group,
-        life_span: breed.life_span,
-        temperament: breed.temperament
-      }));
-
-      setDogs(breedsWithImages);
+      return data;
     } catch (err) {
       setError(err.message);
       console.error('Error searching breeds:', err);
+      return [];
     } finally {
       setLoading(false);
     }
@@ -113,7 +108,8 @@ const useDogBreeds = () => {
     dogs,
     loading,
     error,
-    searchBreeds
+    searchBreeds,
+    fetchInitialDogs
   };
 };
 
